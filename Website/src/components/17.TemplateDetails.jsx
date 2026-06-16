@@ -5,11 +5,11 @@ import '../index.css'
 
 function TemplateDetails(){
     return(
-        <div className="w-screen bg-[rgb(31,41,55)] p-6 border shadow-2xl mb-6">
-            <div className="flex flex-row justify-between  invert ">
-                    <img className="w-5 h-5 ml-4" src={Back} alt="Back Page" />
+        <div className="w-fit rounded-2xl bg-[rgb(31,41,55)] p-6 border shadow-2xl mb-6">
+            <div className="w-150 flex flex-row justify-between  invert ">
+                    <img className="w-5 h-5 " src={Back} alt="Back Page" />
                     <p className="font-bold text-2xl ">Template Details</p>
-                    <img className="w-5 h-5 mr-4" src={Cart} alt="Cart" />
+                    <img className="w-5 h-5" src={Cart} alt="Cart" />
             </div>
         </div>
     )

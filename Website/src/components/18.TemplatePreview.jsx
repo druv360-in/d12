@@ -36,7 +36,7 @@ function TemplatePreview() {
                 key={index}
                 src={img}
                 alt={`thumbnail-${index}`}
-                className={`w-48 h-24  object-cover rounded-lg cursor-pointer border-2 ${
+                className={`w-full h-24  object-cover rounded-lg cursor-pointer border-2 ${
                     selected === img ? "border-blue-500" : "border-transparent"
                 }`}
                 onClick={() => setSelected(img)}
