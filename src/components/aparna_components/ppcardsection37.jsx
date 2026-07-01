@@ -1,6 +1,14 @@
 import React from "react";
 import PpCard38 from "./ppcard38";
 
+const styles = {
+  portfolioList: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "14px",
+  },
+};
+
 const PpCardSection37 = () => {
   const projects = [
     {
@@ -22,14 +30,14 @@ const PpCardSection37 = () => {
       tags: ["Final Cut Pro", "Color Finale"],
     },
     {
-  title: "Product Demo Video",
-  image:
-    "https://images.unsplash.com/photo-1551434678-e076c223a692",
-  description:
-    "Professional product showcase video with motion graphics, screen recordings and promotional storytelling.",
-  date: "January 2025",
-  tags: ["Premiere Pro", "After Effects"],
-},
+      title: "Product Demo Video",
+      image:
+        "https://images.unsplash.com/photo-1551434678-e076c223a692",
+      description:
+        "Professional product showcase video with motion graphics, screen recordings and promotional storytelling.",
+      date: "January 2025",
+      tags: ["Premiere Pro", "After Effects"],
+    },
     {
       title: "YouTube Channel Intro",
       image:
@@ -42,7 +50,7 @@ const PpCardSection37 = () => {
   ];
 
   return (
-    <div className="portfolio-list">
+    <div style={styles.portfolioList}>
       {projects.map((project, index) => (
         <PpCard38
           key={index}

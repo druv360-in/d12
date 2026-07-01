@@ -1,35 +1,138 @@
 import React from "react";
 import ChatButton35 from "./chat_button35";
 
+const styles = {
+  serviceBody: {
+    background: "#071225",
+    padding: "14px",
+  },
+
+  serviceImageContainer: {
+    borderRadius: "22px",
+    overflow: "hidden",
+    marginBottom: "16px",
+  },
+
+  serviceImage: {
+    width: "100%",
+    height: "260px",
+    objectFit: "cover",
+    display: "block",
+  },
+
+  serviceTitleSection: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: "22px",
+  },
+
+  serviceTitle: {
+    color: "white",
+    fontSize: "30px",
+    fontWeight: "700",
+    lineHeight: "1.15",
+    marginBottom: "10px",
+  },
+
+  ratingRow: {
+    color: "white",
+    fontSize: "14px",
+    display: "flex",
+    alignItems: "center",
+    gap: "5px",
+  },
+
+  ratingSpan: {
+    fontWeight: "700",
+  },
+
+  ratingSmall: {
+    color: "#9ca3af",
+  },
+
+  priceSection: {
+    textAlign: "right",
+  },
+
+  priceText: {
+    color: "#9ca3af",
+    fontSize: "11px",
+    marginBottom: "2px",
+  },
+
+  priceHeading: {
+    color: "#6c63ff",
+    fontSize: "34px",
+    fontWeight: "700",
+  },
+
+  aboutSection: {
+    marginTop: "24px",
+  },
+
+  skillsSection: {
+    marginTop: "24px",
+  },
+
+  sectionHeading: {
+    color: "white",
+    fontSize: "18px",
+    fontWeight: "700",
+    marginBottom: "12px",
+  },
+
+  aboutText: {
+    color: "#b8c0cc",
+    lineHeight: "1.7",
+    fontSize: "14px",
+  },
+
+  tagsContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "8px",
+  },
+
+  skillTag: {
+    background: "#ece9ff",
+    color: "#6c63ff",
+    borderRadius: "999px",
+    padding: "6px 12px",
+    fontSize: "12px",
+    fontWeight: "600",
+  },
+};
+
 const ServiceDetailsBody = ({ onChatClick }) => {
   return (
-    <div className="service-body">
+    <div style={styles.serviceBody}>
 
       {/* Hero Image */}
-      <div className="service-image-container">
+      <div style={styles.serviceImageContainer}>
         <img
           src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
           alt="Website Development"
-          className="service-image"
+          style={styles.serviceImage}
         />
       </div>
 
       {/* Service Title + Price */}
-      <div className="service-title-section">
+      <div style={styles.serviceTitleSection}>
         <div>
-          <h2 className="service-title">
+          <h2 style={styles.serviceTitle}>
             Modern Website Development
           </h2>
 
-          <div className="rating-row">
-            ⭐ <span>4.9</span>
-            <small>(45 reviews)</small>
+          <div style={styles.ratingRow}>
+            ⭐ <span style={styles.ratingSpan}>4.9</span>
+            <small style={styles.ratingSmall}>(45 reviews)</small>
           </div>
         </div>
 
-        <div className="price-section">
-          <p>Starting at</p>
-          <h3>$299</h3>
+        <div style={styles.priceSection}>
+          <p style={styles.priceText}>Starting at</p>
+          <h3 style={styles.priceHeading}>$299</h3>
         </div>
       </div>
 
@@ -37,24 +140,24 @@ const ServiceDetailsBody = ({ onChatClick }) => {
       <ChatButton35 onChat={onChatClick} />
 
       {/* About */}
-      <section className="about-section">
-        <h3>About This Service</h3>
+      <section style={styles.aboutSection}>
+        <h3 style={styles.sectionHeading}>About This Service</h3>
 
-        <p>
+        <p style={styles.aboutText}>
           I will create a fully responsive, modern website using React and
           Tailwind CSS. Includes 5 pages, mobile optimization and clean code.
         </p>
       </section>
 
       {/* Skills */}
-      <section className="skills-section">
-        <h3>Skills & Tags</h3>
+      <section style={styles.skillsSection}>
+        <h3 style={styles.sectionHeading}>Skills & Tags</h3>
 
-        <div className="tags-container">
-          <span className="skill-tag">React</span>
-          <span className="skill-tag">Tailwind</span>
-          <span className="skill-tag">Responsive</span>
-          <span className="skill-tag">Modern</span>
+        <div style={styles.tagsContainer}>
+          <span style={styles.skillTag}>React</span>
+          <span style={styles.skillTag}>Tailwind</span>
+          <span style={styles.skillTag}>Responsive</span>
+          <span style={styles.skillTag}>Modern</span>
         </div>
       </section>
 
@@ -63,3 +166,4 @@ const ServiceDetailsBody = ({ onChatClick }) => {
 };
 
 export default ServiceDetailsBody;
+

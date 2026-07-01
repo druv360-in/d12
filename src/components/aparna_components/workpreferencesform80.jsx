@@ -1,5 +1,108 @@
 import React, { useState } from "react";
 
+const styles = {
+  workPreferencesCard: {
+    background: "#1a2438",
+    borderRadius: "14px",
+    padding: "18px",
+    margin: "16px",
+  },
+
+  workPreferencesHeader: {
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    marginBottom: "18px",
+  },
+
+  headerTitle: {
+    margin: 0,
+    color: "white",
+    fontSize: "14px",
+    fontWeight: "600",
+  },
+
+  workIcon: {
+    color: "#6d7cff",
+    fontSize: "12px",
+  },
+
+  fieldGroup: {
+    marginBottom: "16px",
+  },
+
+  label: {
+    display: "block",
+    marginBottom: "6px",
+    color: "#d7dcef",
+    fontSize: "11px",
+    fontWeight: "500",
+  },
+
+  inputIconField: {
+    position: "relative",
+  },
+
+  inputPrefix: {
+    position: "absolute",
+    left: "12px",
+    top: "50%",
+    transform: "translateY(-50%)",
+    color: "#aab3c8",
+    fontSize: "12px",
+  },
+
+  inputWithPrefix: {
+    width: "100%",
+    boxSizing: "border-box",
+    height: "40px",
+    border: "none",
+    borderRadius: "12px",
+    background: "#07152d",
+    color: "white",
+    padding: "0 12px 0 28px",
+    fontSize: "12px",
+  },
+
+  input: {
+    width: "100%",
+    boxSizing: "border-box",
+    height: "40px",
+    border: "none",
+    borderRadius: "12px",
+    background: "#07152d",
+    color: "white",
+    padding: "0 12px",
+    fontSize: "12px",
+  },
+
+  customSelect: {
+    width: "100%",
+    boxSizing: "border-box",
+    height: "40px",
+    border: "none",
+    borderRadius: "12px",
+    background: "#07152d",
+    color: "white",
+    padding: "0 12px",
+    fontSize: "12px",
+    cursor: "pointer",
+  },
+
+  dateInput: {
+    width: "100%",
+    boxSizing: "border-box",
+    height: "40px",
+    border: "none",
+    borderRadius: "12px",
+    background: "#07152d",
+    color: "white",
+    padding: "0 12px",
+    fontSize: "12px",
+    colorScheme: "dark",
+  },
+};
+
 const WorkPreferencesForm80 = () => {
   const [hourlyRate, setHourlyRate] = useState("35");
   const [workingHours, setWorkingHours] = useState("20-40");
@@ -8,46 +111,56 @@ const WorkPreferencesForm80 = () => {
   const [joiningDate, setJoiningDate] = useState("");
 
   return (
-    <div className="work-preferences-card">
-      <div className="work-preferences-header">
-        <span className="work-icon">◌</span>
-        <h3>Work Preferences</h3>
+    <div style={styles.workPreferencesCard}>
+      <div style={styles.workPreferencesHeader}>
+        <span style={styles.workIcon}>◌</span>
+        <h3 style={styles.headerTitle}>
+          Work Preferences
+        </h3>
       </div>
 
       {/* Hourly Rate */}
-      <div className="field-group">
-        <label>Hourly Rate (USD)</label>
+      <div style={styles.fieldGroup}>
+        <label style={styles.label}>
+          Hourly Rate (USD)
+        </label>
 
-        <div className="input-icon-field">
-          <span className="input-prefix">$</span>
+        <div style={styles.inputIconField}>
+          <span style={styles.inputPrefix}>$</span>
 
           <input
             type="number"
             value={hourlyRate}
             onChange={(e) => setHourlyRate(e.target.value)}
+            style={styles.inputWithPrefix}
           />
         </div>
       </div>
 
       {/* Weekly Hours */}
-      <div className="field-group">
-        <label>Weekly Working Hours</label>
+      <div style={styles.fieldGroup}>
+        <label style={styles.label}>
+          Weekly Working Hours
+        </label>
 
         <input
           type="text"
           value={workingHours}
           onChange={(e) => setWorkingHours(e.target.value)}
+          style={styles.input}
         />
       </div>
 
       {/* Availability */}
-      <div className="field-group">
-        <label>Availability</label>
+      <div style={styles.fieldGroup}>
+        <label style={styles.label}>
+          Availability
+        </label>
 
         <select
-          className="custom-select"
           value={availability}
           onChange={(e) => setAvailability(e.target.value)}
+          style={styles.customSelect}
         >
           <option value="">Select availability</option>
           <option>Full Time</option>
@@ -58,13 +171,15 @@ const WorkPreferencesForm80 = () => {
       </div>
 
       {/* Team Role */}
-      <div className="field-group">
-        <label>Team Role</label>
+      <div style={styles.fieldGroup}>
+        <label style={styles.label}>
+          Team Role
+        </label>
 
         <select
-          className="custom-select"
           value={teamRole}
           onChange={(e) => setTeamRole(e.target.value)}
+          style={styles.customSelect}
         >
           <option value="">Select role</option>
           <option>Frontend Developer</option>
@@ -76,14 +191,16 @@ const WorkPreferencesForm80 = () => {
       </div>
 
       {/* Joining Date */}
-      <div className="field-group">
-        <label>Joining Date</label>
+      <div style={styles.fieldGroup}>
+        <label style={styles.label}>
+          Joining Date
+        </label>
 
         <input
           type="date"
           value={joiningDate}
           onChange={(e) => setJoiningDate(e.target.value)}
-          className="date-input"
+          style={styles.dateInput}
         />
       </div>
     </div>

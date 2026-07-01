@@ -1,79 +1,97 @@
-import ChatButton35 from "./chat_button35";
 import React from "react";
-import {
-  Menu,
-  ArrowLeft,
-  Heart,
-  ShoppingCart,
-  User,
-  Sun,
-  Zap,
-} from "lucide-react";
+import { ArrowLeft, Heart } from "lucide-react";
 
 const ServiceDetailsPgHeader = ({
   onBack,
   onFavorite,
   isFavorited = false,
 }) => {
+  const styles = {
+    wrapper: {
+      background: "#111C33",
+      padding: "20px 20px 16px",
+      borderRadius: "0 0 18px 18px",
+    },
+
+    header: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
+
+    backButton: {
+      display: "flex",
+      alignItems: "center",
+      gap: "6px",
+      background: "rgba(255,255,255,0.08)",
+      border: "none",
+      borderRadius: "20px",
+      padding: "8px 14px",
+      color: "#ffffff",
+      cursor: "pointer",
+      fontSize: "13px",
+      fontWeight: "600",
+    },
+
+    title: {
+      color: "#ffffff",
+      fontSize: "22px",
+      fontWeight: "700",
+      margin: 0,
+      flex: 1,
+      textAlign: "center",
+    },
+
+    favoriteBtn: {
+      width: "38px",
+      height: "38px",
+      borderRadius: "50%",
+      border: "none",
+      background: "rgba(255,255,255,0.08)",
+      color: "#ffffff",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      cursor: "pointer",
+    },
+
+    divider: {
+      marginTop: "18px",
+      height: "1px",
+      background: "rgba(255,255,255,0.08)",
+    },
+  };
+
   return (
-    <div className="service-header-wrapper">
-      {/* Top Navigation */}
-      <div className="top-navbar">
-        <button className="nav-icon">
-          <Menu size={18} />
-        </button>
-
-        <div className="logo-section">
-          <div className="logo-icon">
-            <Zap size={10} fill="white" />
-          </div>
-
-          <span className="logo-text">
-            SkillBuster
-          </span>
-        </div>
-
-        <div className="nav-actions">
-          <button className="nav-icon">
-            <Sun size={16} />
-          </button>
-
-          <button className="nav-icon">
-            <ShoppingCart size={16} />
-          </button>
-
-          <button className="nav-icon">
-            <User size={16} />
-          </button>
-        </div>
-      </div>
-
-      {/* Header Area */}
-      <div className="service-details-header">
+    <div style={styles.wrapper}>
+      <div style={styles.header}>
         <button
-          className="back-pill"
+          style={styles.backButton}
           onClick={onBack}
+          type="button"
         >
-          <ArrowLeft size={12} />
+          <ArrowLeft size={14} />
           <span>Back</span>
         </button>
 
-        <div className="title-row">
-          <h1>Service Details</h1>
+        <h1 style={styles.title}>
+          Service Details
+        </h1>
 
-          <button
-            className="favorite-btn"
-            onClick={onFavorite}
-          >
-            <Heart
-              size={18}
-              fill={isFavorited ? "currentColor" : "none"}
-            />
-          </button>
-        </div>
+        <button
+          style={styles.favoriteBtn}
+          onClick={onFavorite}
+          type="button"
+        >
+          <Heart
+            size={18}
+            fill={isFavorited ? "#ffffff" : "transparent"}
+            color="#ffffff"
+          />
+        </button>
       </div>
 
-      <div className="header-divider" />
+      <div style={styles.divider} />
     </div>
   );
 };

@@ -1,16 +1,45 @@
 import React from "react";
 import PerformanceMetricCard84 from "./performancemetriccard84";
 
+const styles = {
+  performancePreviewCard: {
+    background: "#1a2438",
+    borderRadius: "14px",
+    padding: "18px",
+    margin: "16px",
+  },
+
+  performanceHeader: {
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    marginBottom: "18px",
+  },
+
+  performanceIcon: {
+    color: "#7c5cff",
+    fontSize: "12px",
+  },
+
+  headerTitle: {
+    margin: 0,
+    color: "white",
+    fontSize: "14px",
+    fontWeight: "600",
+  },
+};
+
 const PerformancePreview83 = () => {
   return (
-    <div className="performance-preview-card">
-
-      <div className="performance-header">
-        <span className="performance-icon">
+    <div style={styles.performancePreviewCard}>
+      <div style={styles.performanceHeader}>
+        <span style={styles.performanceIcon}>
           ↗
         </span>
 
-        <h3>Performance Preview</h3>
+        <h3 style={styles.headerTitle}>
+          Performance Preview
+        </h3>
       </div>
 
       <PerformanceMetricCard84
@@ -52,7 +81,6 @@ const PerformancePreview83 = () => {
         icon="🎯"
         bgClass="metric-pink"
       />
-
     </div>
   );
 };

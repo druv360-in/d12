@@ -1,5 +1,140 @@
 import React, { useState } from "react";
 
+const styles = {
+  professionalDetailsCard: {
+    padding: "22px",
+    background: "#0f1c35",
+    color: "white",
+  },
+
+  professionalHeader: {
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    marginBottom: "22px",
+  },
+
+  professionalTitle: {
+    margin: 0,
+    fontSize: "18px",
+    fontWeight: "700",
+  },
+
+  professionalIcon: {
+    color: "#7c5cff",
+  },
+
+  fieldGroup: {
+    marginBottom: "18px",
+  },
+
+  label: {
+    display: "block",
+    marginBottom: "8px",
+    fontSize: "13px",
+    color: "white",
+  },
+
+  required: {
+    color: "#ff4b4b",
+  },
+
+  input: {
+    width: "100%",
+    boxSizing: "border-box",
+    background: "#09162d",
+    border: "1px solid #15284a",
+    borderRadius: "12px",
+    color: "white",
+    padding: "12px",
+    fontSize: "13px",
+  },
+
+  textarea: {
+    width: "100%",
+    boxSizing: "border-box",
+    background: "#09162d",
+    border: "1px solid #15284a",
+    borderRadius: "12px",
+    color: "white",
+    padding: "12px",
+    fontSize: "13px",
+    resize: "none",
+  },
+
+  customSelect: {
+    width: "100%",
+    boxSizing: "border-box",
+    background: "#09162d",
+    border: "1px solid #15284a",
+    borderRadius: "12px",
+    color: "white",
+    padding: "12px",
+    fontSize: "13px",
+    cursor: "pointer",
+  },
+
+  charCounter: {
+    fontSize: "10px",
+    color: "#7e8ca6",
+    marginTop: "6px",
+  },
+
+  languageChips: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "8px",
+  },
+
+  languageChip: {
+    border: "none",
+    borderRadius: "16px",
+    padding: "8px 14px",
+    background: "#16274a",
+    color: "white",
+    fontSize: "12px",
+    cursor: "pointer",
+  },
+
+  resumeUploadBox: {
+    border: "1px dashed #32476f",
+    borderRadius: "14px",
+    padding: "20px",
+    textAlign: "center",
+  },
+
+  resumeIcon: {
+    fontSize: "26px",
+    marginBottom: "8px",
+  },
+
+  resumeText: {
+    color: "#a6b4cc",
+    fontSize: "11px",
+    lineHeight: "1.5",
+    marginBottom: "12px",
+  },
+
+  resumeBtn: {
+    border: "none",
+    borderRadius: "20px",
+    background: "#f2ebff",
+    color: "#6c4cff",
+    padding: "8px 18px",
+    fontSize: "12px",
+    fontWeight: "600",
+    cursor: "pointer",
+    display: "inline-block",
+  },
+
+  uploadedFileName: {
+    marginTop: "10px",
+    color: "#a6b4cc",
+    fontSize: "11px",
+    wordBreak: "break-word",
+  },
+};
+
 const ProfessionalDetailsForm79 = () => {
   const [resumeFile, setResumeFile] = useState(null);
 
@@ -20,19 +155,20 @@ const ProfessionalDetailsForm79 = () => {
   };
 
   return (
-    <div className="professional-details-card">
-      <div className="professional-header">
-        <span className="professional-icon">💼</span>
-        <h3>Professional Details</h3>
+    <div style={styles.professionalDetailsCard}>
+      <div style={styles.professionalHeader}>
+        <span style={styles.professionalIcon}>💼</span>
+        <h3 style={styles.professionalTitle}>
+          Professional Details
+        </h3>
       </div>
 
-      {/* Main Skill */}
-      <div className="field-group">
-        <label>
-          Main Skill <span>*</span>
+      <div style={styles.fieldGroup}>
+        <label style={styles.label}>
+          Main Skill <span style={styles.required}>*</span>
         </label>
 
-        <select className="custom-select">
+        <select style={styles.customSelect}>
           <option value="">Select skill</option>
           <option>Web Development</option>
           <option>UI/UX Design</option>
@@ -43,13 +179,12 @@ const ProfessionalDetailsForm79 = () => {
         </select>
       </div>
 
-      {/* Experience Level */}
-      <div className="field-group">
-        <label>
-          Experience Level <span>*</span>
+      <div style={styles.fieldGroup}>
+        <label style={styles.label}>
+          Experience Level <span style={styles.required}>*</span>
         </label>
 
-        <select className="custom-select">
+        <select style={styles.customSelect}>
           <option value="">Select level</option>
           <option>Beginner</option>
           <option>Intermediate</option>
@@ -58,41 +193,46 @@ const ProfessionalDetailsForm79 = () => {
         </select>
       </div>
 
-      {/* Short Bio */}
-      <div className="field-group">
-        <label>Short Bio</label>
+      <div style={styles.fieldGroup}>
+        <label style={styles.label}>
+          Short Bio
+        </label>
 
         <textarea
           rows="4"
           maxLength="500"
           placeholder="Tell us about your skills, experience, and what you're passionate about..."
+          style={styles.textarea}
         />
 
-        <div className="char-counter">
+        <div style={styles.charCounter}>
           0/500 characters
         </div>
       </div>
 
-      {/* Portfolio */}
-      <div className="field-group">
-        <label>Portfolio Link</label>
+      <div style={styles.fieldGroup}>
+        <label style={styles.label}>
+          Portfolio Link
+        </label>
 
         <input
           type="url"
           placeholder="https://yourportfolio.com"
+          style={styles.input}
         />
       </div>
 
-      {/* Languages */}
-      <div className="field-group">
-        <label>Languages Known</label>
+      <div style={styles.fieldGroup}>
+        <label style={styles.label}>
+          Languages Known
+        </label>
 
-        <div className="language-chips">
+        <div style={styles.languageChips}>
           {languages.map((lang) => (
             <button
               key={lang}
               type="button"
-              className="language-chip"
+              style={styles.languageChip}
             >
               {lang}
             </button>
@@ -100,14 +240,17 @@ const ProfessionalDetailsForm79 = () => {
         </div>
       </div>
 
-      {/* Resume Upload */}
-      <div className="field-group">
-        <label>Resume Upload</label>
+      <div style={styles.fieldGroup}>
+        <label style={styles.label}>
+          Resume Upload
+        </label>
 
-        <div className="resume-upload-box">
-          <div className="resume-icon">📄</div>
+        <div style={styles.resumeUploadBox}>
+          <div style={styles.resumeIcon}>
+            📄
+          </div>
 
-          <p>
+          <p style={styles.resumeText}>
             Upload Resume PDF, DOC
             <br />
             Max 5 MB
@@ -123,13 +266,13 @@ const ProfessionalDetailsForm79 = () => {
 
           <label
             htmlFor="resumeUpload"
-            className="resume-btn"
+            style={styles.resumeBtn}
           >
             Choose File
           </label>
 
           {resumeFile && (
-            <div className="uploaded-file-name">
+            <div style={styles.uploadedFileName}>
               {resumeFile.name}
             </div>
           )}
@@ -140,3 +283,5 @@ const ProfessionalDetailsForm79 = () => {
 };
 
 export default ProfessionalDetailsForm79;
+
+
