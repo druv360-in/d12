@@ -96,7 +96,7 @@ function PortfolioCard45({
 
 export default function PortfolioList45() {
   return (
-    <div className="mx-auto mt-6 w-full max-w-screen-xl px-4 pb-8 sm:px-6 lg:px-8">
+    <div className="mx-auto mt-6 w-full max-w-[1600px] px-1 pb-8">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h3 className="font-bold text-gray-900">Past Work & Portfolio</h3>

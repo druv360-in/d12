@@ -4,28 +4,122 @@ import BottomMenu05 from "../components/BottomMenu05";
 import BrowseServices12 from "../components/12BrowseServices";
 import Header01 from "../components/Header01";
 import SidebarMenu24 from "../components/SidebarMenu24";
+import BrowseRightPanel from "../components/14BrowseRightPanel";
 
 function BrowseServicesPage() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] =
+    useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-white">
+
+      {/* =====================================================
+          LEFT SIDEBAR
+      ===================================================== */}
+
       <SidebarMenu24
         isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
+        onClose={() =>
+          setIsSidebarOpen(false)
+        }
       />
 
-      <div className="lg:pl-[360px] xl:pl-[400px]">
-        <div className="sticky top-0 z-50 lg:hidden">
-          <Header01 onMenuClick={() => setIsSidebarOpen(true)} />
+
+      {/* =====================================================
+          PAGE CONTENT
+      ===================================================== */}
+
+      <div className="lg:ml-[400px]">
+
+        {/* =================================================
+            MOBILE HEADER
+        ================================================= */}
+
+        <div
+          className="
+            sticky
+            top-0
+            z-50
+            lg:hidden
+          "
+        >
+
+          <Header01
+            onMenuClick={() =>
+              setIsSidebarOpen(true)
+            }
+          />
+
         </div>
 
-        <main className="pb-24 lg:pb-0">
-          <BrowseServices12 />
-        </main>
+
+        {/* =================================================
+            MAIN + RIGHT PANEL
+        ================================================= */}
+
+        <div
+          className="
+            flex
+            items-start
+            w-full
+          "
+        >
+
+          {/* =============================================
+              MAIN BROWSE SERVICES
+          ============================================= */}
+
+          <main
+            className="
+              flex-1
+              min-w-0
+              pb-24
+              lg:pb-0
+            "
+          >
+
+            <BrowseServices12 />
+
+          </main>
+
+
+          {/* =============================================
+              RIGHT PANEL
+              
+              IMPORTANT:
+              NOT fixed
+              NOT sticky
+              NOT h-screen
+          ============================================= */}
+
+          <div
+            className="
+              hidden
+              xl:block
+              w-[400px]
+              shrink-0
+            "
+          >
+
+            <BrowseRightPanel />
+
+          </div>
+
+        </div>
+
       </div>
 
-      <BottomMenu05 />
+
+      {/* =====================================================
+          MOBILE BOTTOM NAVIGATION
+      ===================================================== */}
+
+      <div className="lg:hidden">
+
+        <BottomMenu05 />
+
+      </div>
+
     </div>
   );
 }

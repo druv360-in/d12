@@ -20,25 +20,65 @@ function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#faf7fc]">
 
-      {/* Sidebar */}
+      {/* =====================================================
+          SIDEBAR
+      ===================================================== */}
+
       <SidebarMenu24
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
       />
 
-      {/* Main Content */}
-      <div className="lg:pl-[360px] xl:pl-[400px]">
 
-        {/* Mobile Header */}
+      {/* =====================================================
+          MAIN CONTENT
+      ===================================================== */}
+
+      <div
+        className="
+          lg:ml-[313px]
+        "
+      >
+
+        {/* =================================================
+            MOBILE HEADER
+        ================================================= */}
+
         <div className="sticky top-0 z-50 lg:hidden">
-          <Header01 onMenuClick={() => setIsSidebarOpen(true)} />
+
+          <Header01
+            onMenuClick={() => setIsSidebarOpen(true)}
+          />
+
         </div>
 
-        <main className="mx-auto w-full max-w-screen-xl space-y-4 px-4 py-4 sm:px-6 lg:px-8">
 
-          {/* Back Button */}
+        {/* =================================================
+            LAPTOP TOP BAR
+        ================================================= */}
+
+        <div
+          className="
+            hidden
+            lg:flex
+            sticky
+            top-0
+            z-40
+            h-[72px]
+            items-center
+            justify-between
+            border-b
+            border-gray-200
+            bg-white
+            px-6
+            xl:px-8
+          "
+        >
+
+          {/* BACK BUTTON */}
+
           <button
             onClick={() => navigate(-1)}
             className="
@@ -48,31 +88,157 @@ function ProfilePage() {
               items-center
               justify-center
               rounded-full
-              bg-gray-100
+              bg-purple-50
+              text-gray-700
               transition
-              hover:bg-gray-200
+              hover:bg-purple-100
             "
           >
-            <ArrowLeft
-              size={20}
-              className="text-gray-700"
-            />
+            <ArrowLeft size={19} />
           </button>
 
-          {/* Profile */}
-          <Profile22 />
 
-          {/* Stats */}
-          <Stat24 />
-          <Stat25 onUpgrade={handleUpgrade} />
-          <Stat26 />
+          {/* USER PROFILE */}
+
+          <button
+            onClick={() => navigate("/profile")}
+            className="
+              flex
+              items-center
+              gap-3
+              rounded-2xl
+              border
+              border-gray-200
+              bg-white
+              px-4
+              py-2
+              shadow-sm
+              transition
+              hover:shadow-md
+            "
+          >
+
+            <img
+              src="https://randomuser.me/api/portraits/men/32.jpg"
+              alt="John Doe"
+              className="
+                h-10
+                w-10
+                rounded-full
+                object-cover
+                border-2
+                border-purple-600
+              "
+            />
+
+            <div className="text-left">
+
+              <p className="text-sm font-bold text-gray-900">
+                John Doe
+              </p>
+
+              <p className="text-xs text-gray-500">
+                View Profile
+              </p>
+
+            </div>
+
+          </button>
+
+        </div>
+
+
+        {/* =================================================
+            PAGE BODY
+        ================================================= */}
+
+        <main
+          className="
+            min-h-[calc(100vh-72px)]
+            overflow-y-auto
+            px-5
+            py-6
+            sm:px-6
+            lg:px-6
+            xl:px-8
+            pb-24
+            lg:pb-10
+          "
+        >
+
+          {/* NO max-width / NO mx-auto */}
+
+          <div className="w-full">
+
+            {/* =================================================
+                PROFILE
+            ================================================= */}
+
+            <Profile22 />
+
+
+            {/* =================================================
+                STATISTICS
+            ================================================= */}
+
+            <div className="mt-5">
+
+              <Stat24 />
+
+            </div>
+
+
+            {/* =================================================
+                UPGRADE + TRUST
+            ================================================= */}
+
+            <div
+              className="
+                mt-5
+                grid
+                grid-cols-1
+                lg:grid-cols-5
+                gap-5
+              "
+            >
+
+              {/* UPGRADE */}
+
+              <div className="lg:col-span-3">
+
+                <Stat25
+                  onUpgrade={handleUpgrade}
+                />
+
+              </div>
+
+
+              {/* TRUST */}
+
+              <div className="lg:col-span-2">
+
+                <Stat26 />
+
+              </div>
+
+            </div>
+
+          </div>
 
         </main>
 
       </div>
 
-      {/* Bottom Navigation */}
-      <BottomMenu05 />
+
+      {/* =====================================================
+          MOBILE BOTTOM NAV
+      ===================================================== */}
+
+      <div className="lg:hidden">
+
+        <BottomMenu05 />
+
+      </div>
 
     </div>
   );
