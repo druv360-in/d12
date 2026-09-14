@@ -29,10 +29,6 @@ const FortyNineComponent = ({
           shadow-sm
         "
       >
-
-
-
-
         {/* Left */}
 
         <div
@@ -43,10 +39,6 @@ const FortyNineComponent = ({
             min-w-0
           "
         >
-
-
-
-
           {/* Icon */}
 
           <div
@@ -72,13 +64,6 @@ const FortyNineComponent = ({
             />
 
           </div>
-
-
-
-
-
-
-
           {/* Text */}
 
           <div
@@ -97,10 +82,6 @@ const FortyNineComponent = ({
             >
               Portfolio Website — ₹12,500
             </h3>
-
-
-
-
             <p
               className="
                 text-sm
@@ -110,23 +91,9 @@ const FortyNineComponent = ({
             >
               Escrow protection available
             </p>
-
-
-
           </div>
 
-
-
         </div>
-
-
-
-
-
-
-
-
-
         {/* Pay Button */}
 
         <button
@@ -143,31 +110,16 @@ const FortyNineComponent = ({
             shrink-0
           "
         >
-
           Pay
-
-
           <ChevronRight
             className="
               w-5
               h-5
             "
           />
-
-
         </button>
-
-
-
-
       </div>
-
-
     </div>
-
   );
-
 };
-
-
 export default FortyNineComponent;
