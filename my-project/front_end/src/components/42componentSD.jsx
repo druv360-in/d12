@@ -1,39 +1,87 @@
 import React from "react";
 import { ArrowLeft, Heart } from "lucide-react";
 
-export default function Component42({ title = "Service Details", onBack }) {
+export default function Component42({
+  title = "Service Details",
+  onBack,
+}) {
   return (
     <div
       className="
         sticky
-        top-12
+        top-0
         z-40
-        h-20
+        h-[92px]
+        w-full
         px-5
         flex
         items-center
-        justify-between
-        bg-white/75
-        backdrop-blur-md
+        justify-center
+        bg-white
         border-b
-        border-white/30
-        transition-all
-        duration-300
+        border-gray-200
       "
     >
+      {/* CENTER TITLE + BACK ARROW */}
+      <div className="relative flex items-center justify-center">
+        
+        {/* BACK ARROW */}
+        <button
+          type="button"
+          onClick={onBack}
+          aria-label="Go back"
+          className="
+            absolute
+            right-full
+            mr-4
+            w-11
+            h-11
+            rounded-full
+            bg-gray-100
+            flex
+            items-center
+            justify-center
+            text-gray-900
+            hover:bg-gray-200
+            transition
+            cursor-pointer
+          "
+        >
+          <ArrowLeft
+            size={24}
+            strokeWidth={2.5}
+          />
+        </button>
+
+        {/* TITLE */}
+        <h1 className="text-3xl font-bold text-gray-900">
+          {title}
+        </h1>
+      </div>
+
+      {/* HEART */}
       <button
-        onClick={onBack}
-        className="w-12 h-12 rounded-full bg-gray-100/80 backdrop-blur flex items-center justify-center"
+        type="button"
+        aria-label="Add to favorites"
+        className="
+          absolute
+          right-5
+          w-11
+          h-11
+          rounded-full
+          bg-gray-100
+          flex
+          items-center
+          justify-center
+          text-gray-900
+          hover:bg-gray-200
+          transition
+        "
       >
-        <ArrowLeft size={22} />
-      </button>
-
-      <h1 className="text-3xl font-bold text-gray-900">
-        {title}
-      </h1>
-
-      <button className="w-12 h-12 rounded-full bg-gray-100/80 backdrop-blur flex items-center justify-center">
-        <Heart size={22} />
+        <Heart
+          size={22}
+          strokeWidth={2}
+        />
       </button>
     </div>
   );

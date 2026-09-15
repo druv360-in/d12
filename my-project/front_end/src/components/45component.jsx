@@ -5,7 +5,7 @@ import { Play, Calendar, ExternalLink } from "lucide-react";
 const PROJECTS = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800",
+    image: "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=800&amp;auto=format&amp;fit=crop",
     title: "Brand Campaign Video",
     description: "Created a 60-second promotional video for a tech startup, featuring dynamic transitions and motion graphics.",
     tools: ["Adobe Premiere Pro", "After Effects", "DaVinci Resolve"],
@@ -13,7 +13,7 @@ const PROJECTS = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800",
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&amp;auto=format&amp;fit=crop",
     title: "Wedding Highlight Reel",
     description: "Edited a cinematic wedding video with color grading, audio mixing, and seamless storytelling.",
     tools: ["Final Cut Pro", "Color Finale", "Motion"],
@@ -21,7 +21,7 @@ const PROJECTS = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800",
+    image: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=800&amp;auto=format&amp;fit=crop",
     title: "Product Demo Video",
     description: "Produced an engaging product demonstration with text animations, background music, and voice-over.",
     tools: ["Adobe Premiere Pro", "Audition", "Photoshop"],
@@ -29,7 +29,7 @@ const PROJECTS = [
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800",
+    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&amp;auto=format&amp;fit=crop",
     title: "YouTube Channel Intro",
     description: "Designed and animated a custom intro for a gaming YouTube channel with 3D elements and sound design.",
     tools: ["After Effects", "Cinema 4D", "Audition"],
@@ -92,11 +92,11 @@ function PortfolioCard45({
       </div>
     </div>
   );
-}
+}   
 
 export default function PortfolioList45() {
   return (
-    <div className="mx-auto mt-6 w-full max-w-[1600px] px-1 pb-8">
+    <div className="mx-auto mt-6 w-full max-w-screen-xl px-4 pb-8 sm:px-6 lg:px-8">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h3 className="font-bold text-gray-900">Past Work & Portfolio</h3>
