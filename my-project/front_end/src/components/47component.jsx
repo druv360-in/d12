@@ -10,17 +10,24 @@ export default function ReviewCard47({
 }) {
   return (
     <div
-      className="
-        w-full
-        rounded-2xl
-        border
-        border-gray-100
-        bg-white
-        p-5
-        shadow-[0_4px_15px_rgba(0,0,0,0.06)]
-      "
-    >
-
+  className="
+    mx-auto
+    w-full
+    max-w-[1600px]
+    rounded-2xl
+    border
+    border-gray-200/70
+    bg-[#F1F3F5]
+    p-5
+    shadow-[0_12px_25px_rgba(0,0,0,0.18)]
+    transition-all
+    duration-300
+    ease-out
+    hover:-translate-y-2
+    hover:scale-[1.01]
+    hover:shadow-[0_25px_50px_rgba(0,0,0,0.30)]
+  "
+>
       {/* =================================================
           HEADER
       ================================================= */}
@@ -32,7 +39,6 @@ export default function ReviewCard47({
           gap-3
         "
       >
-
         {/* AVATAR */}
 
         <img
@@ -44,14 +50,13 @@ export default function ReviewCard47({
             shrink-0
             rounded-full
             object-cover
+            shadow-[0_5px_12px_rgba(0,0,0,0.15)]
           "
         />
-
 
         {/* NAME + DATE */}
 
         <div className="min-w-0 flex-1">
-
           <h4
             className="
               text-base
@@ -71,9 +76,7 @@ export default function ReviewCard47({
           >
             {date}
           </p>
-
         </div>
-
 
         {/* RATING */}
 
@@ -83,9 +86,17 @@ export default function ReviewCard47({
             shrink-0
             items-center
             gap-1.5
+            rounded-xl
+            bg-white
+            px-3
+            py-2
+            shadow-[0_5px_12px_rgba(0,0,0,0.10)]
+            transition-all
+            duration-300
+            hover:-translate-y-1
+            hover:shadow-[0_8px_18px_rgba(0,0,0,0.16)]
           "
         >
-
           <Star
             size={18}
             fill="#d4af37"
@@ -102,11 +113,8 @@ export default function ReviewCard47({
           >
             {rating}
           </span>
-
         </div>
-
       </div>
-
 
       {/* =================================================
           COMMENT
@@ -122,7 +130,6 @@ export default function ReviewCard47({
       >
         {comment}
       </p>
-
     </div>
   );
 }

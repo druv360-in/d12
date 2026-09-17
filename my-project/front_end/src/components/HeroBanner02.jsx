@@ -19,7 +19,15 @@ function HeroBanner02() {
         py-8
         min-h-[230px]
 
-        shadow-lg
+        shadow-[0_8px_20px_rgba(0,0,0,0.16)]
+
+        transition-all
+        duration-300
+        ease-out
+
+        hover:-translate-y-2
+        hover:scale-[1.01]
+        hover:shadow-[0_22px_45px_rgba(0,0,0,0.28)]
       "
     >
 
@@ -47,7 +55,6 @@ function HeroBanner02() {
             Hey, Welcome! <span>👋</span>
           </h2>
 
-
           <p
             className="
               text-lg
@@ -57,10 +64,7 @@ function HeroBanner02() {
             Discover talented student freelancers for your next project
           </p>
 
-
         </div>
-
-
 
         {/* Icon */}
         <button
@@ -74,17 +78,16 @@ function HeroBanner02() {
             bg-white/20
             text-white
             backdrop-blur-sm
-            transition
+            transition-all
+            duration-300
             hover:bg-white/30
+            hover:scale-110
           "
         >
-          <Sparkles size={28}/>
+          <Sparkles size={28} />
         </button>
 
-
       </div>
-
-
 
       {/* Decorative blur */}
       <div
@@ -100,7 +103,6 @@ function HeroBanner02() {
         "
       />
 
-
       <div
         className="
           absolute
@@ -113,7 +115,6 @@ function HeroBanner02() {
           blur-3xl
         "
       />
-
 
     </section>
   );

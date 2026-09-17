@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 import ReviewCard47 from "./47component";
 
+// ======================================================
 // HARDCODED REVIEWS
+// ======================================================
+
 const REVIEWS = [
   {
     id: 1,
@@ -14,6 +17,7 @@ const REVIEWS = [
     comment:
       "Outstanding work! The website exceeded our expectations. Clean code and beautiful design.",
   },
+
   {
     id: 2,
     name: "Sarah Martinez",
@@ -24,6 +28,7 @@ const REVIEWS = [
     comment:
       "Very professional and delivered on time. Great communication throughout the project.",
   },
+
   {
     id: 3,
     name: "Mike Chen",
@@ -36,42 +41,124 @@ const REVIEWS = [
   },
 ];
 
+// ======================================================
+// REVIEWS LIST
+// ======================================================
+
 export default function ReviewsList46({ total = 45 }) {
   const [showAllReviews, setShowAllReviews] = useState(false);
 
   return (
     <>
-      {/* =========================
+      {/* ==================================================
           REVIEWS SECTION
-      ========================== */}
-      <div className="mx-auto mt-6 w-full max-w-screen-xl px-4 pb-8 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-4 flex items-center justify-between">
-          <h2 className="font-bold text-gray-1000">
-            Reviews({total})
+      ================================================== */}
+
+      <section
+        id="reviews-section"
+        className="
+          mx-auto
+          mt-8
+          w-[1600px]
+          max-w-full
+          bg-white
+          px-4
+          pb-10
+          sm:px-6
+          lg:px-8
+          xl:px-10
+          scroll-mt-24
+        "
+      >
+        {/* ==================================================
+            HEADER
+        ================================================== */}
+
+        <div
+          className="
+            mb-5
+            flex
+            items-center
+            justify-between
+          "
+        >
+          {/* HEADING */}
+
+          <h2
+            className="
+              text-xl
+              font-bold
+              tracking-tight
+              text-gray-900
+              sm:text-2xl
+              lg:text-3xl
+            "
+          >
+            Reviews ({total})
           </h2>
 
-          {/* VIEW ALL */}
+          {/* ==================================================
+              VIEW ALL
+          ================================================== */}
+
           <button
             type="button"
             onClick={() => setShowAllReviews(true)}
-            className="cursor-pointer text-[#6D28D9] transition-colors hover:text-[#5B21B6]"
+            className="
+              cursor-pointer
+              rounded-xl
+              px-4
+              py-2
+              text-base
+              font-bold
+              text-[#6D28D9]
+              transition-all
+              duration-300
+              ease-out
+
+              hover:-translate-y-1
+              hover:bg-purple-50
+              hover:text-[#5B21B6]
+              hover:shadow-[0_10px_22px_rgba(109,40,217,0.18)]
+
+              sm:px-5
+              sm:py-2.5
+              sm:text-lg
+
+              lg:px-6
+              lg:py-3
+              lg:text-xl
+            "
           >
             View all
           </button>
         </div>
 
-        {/* Review Cards */}
-        <div className="flex flex-col gap-4">
+        {/* ==================================================
+            REVIEW CARDS
+        ================================================== */}
+
+        <div
+          className="
+            flex
+            w-full
+            flex-col
+            gap-6
+          "
+        >
           {REVIEWS.slice(0, 2).map((review) => (
-            <ReviewCard47 key={review.id} {...review} />
+            <ReviewCard47
+              key={review.id}
+              {...review}
+            />
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* =========================
+      {/* ======================================================
           ALL REVIEWS MODAL
-      ========================== */}
+      ====================================================== */}
+
       {showAllReviews && (
         <div
           className="
@@ -82,79 +169,120 @@ export default function ReviewsList46({ total = 45 }) {
             items-center
             justify-center
             bg-black/30
-            backdrop-blur-[5px]
             px-4
+            backdrop-blur-[5px]
           "
           onClick={() => setShowAllReviews(false)}
         >
-          {/* MODAL */}
+          {/* ==================================================
+              MODAL
+          ================================================== */}
+
           <div
             className="
               relative
               w-full
-              max-w-[672px]
-              max-h-[80vh]
+              max-w-[1600px]
+              max-h-[85vh]
               overflow-hidden
-              rounded-[24px]
+              rounded-[28px]
               bg-white
-              shadow-2xl
+              shadow-[0_30px_80px_rgba(0,0,0,0.25)]
             "
             onClick={(e) => e.stopPropagation()}
           >
-            {/* =========================
+            {/* ==================================================
                 MODAL HEADER
-            ========================== */}
+            ================================================== */}
+
             <div
               className="
                 flex
                 items-center
                 justify-between
                 border-b
-                border-gray-100
+                border-gray-200
                 px-6
                 py-5
+                sm:px-8
+                sm:py-6
               "
             >
-              <h2 className="text-[20px] font-bold text-gray-900">
+              {/* TITLE */}
+
+              <h2
+                className="
+                  text-xl
+                  font-bold
+                  text-gray-900
+                  sm:text-2xl
+                  lg:text-3xl
+                "
+              >
                 All Reviews ({REVIEWS.length})
               </h2>
 
-              {/* CLOSE BUTTON */}
+              {/* ==================================================
+                  CLOSE BUTTON
+              ================================================== */}
+
               <button
                 type="button"
                 onClick={() => setShowAllReviews(false)}
                 aria-label="Close reviews"
                 className="
                   flex
-                  h-[34px]
-                  w-[34px]
+                  h-11
+                  w-11
                   cursor-pointer
                   items-center
                   justify-center
                   rounded-full
-                  bg-[#f4f3fb]
+                  bg-[#F1F3F5]
                   text-gray-500
+                  shadow-[0_6px_14px_rgba(0,0,0,0.12)]
                   transition-all
-                  hover:bg-[#ebe8ff]
+                  duration-300
+                  ease-out
+
+                  hover:-translate-y-1
+                  hover:scale-105
+                  hover:bg-purple-50
                   hover:text-purple-600
+                  hover:shadow-[0_10px_22px_rgba(0,0,0,0.18)]
+
+                  active:scale-95
                 "
               >
-                <X size={20} strokeWidth={1.8} />
+                <X
+                  size={22}
+                  strokeWidth={2}
+                />
               </button>
             </div>
 
-            {/* =========================
+            {/* ==================================================
                 ALL REVIEWS
-            ========================== */}
+            ================================================== */}
+
             <div
               className="
-                max-h-[calc(80vh-80px)]
+                max-h-[calc(85vh-90px)]
                 overflow-y-auto
-                px-6
+                px-5
                 py-6
+                sm:px-8
+                sm:py-8
               "
             >
-              <div className="flex flex-col gap-4">
+              <div
+                className="
+                  flex
+                  w-full
+                  flex-col
+                  gap-6
+                "
+              >
                 {REVIEWS.map((review) => (
                   <ReviewCard47
                     key={review.id}

@@ -17,31 +17,35 @@ function ServiceCard13({
   price,
   onClick,
 }) {
-
   const isOwnService = seller === "You";
 
-
   return (
-
     <div
       onClick={onClick}
-      className={`
+      className="
         w-full
         overflow-hidden
-        rounded-2xl
-        border
-        border-gray-200
-        bg-white
-        shadow-sm
-        transition-all
-        duration-200
 
-        ${
-          !isOwnService
-            ? "cursor-pointer hover:-translate-y-1 hover:shadow-md"
-            : ""
-        }
-      `}
+        rounded-2xl
+
+        border
+        border-gray-200/70
+
+        bg-[#F1F3F5]
+
+        shadow-[0_12px_25px_rgba(0,0,0,0.18)]
+
+        transition-all
+        duration-300
+        ease-out
+
+        cursor-pointer
+
+        hover:-translate-y-2
+        hover:scale-[1.02]
+
+        hover:shadow-[0_25px_50px_rgba(0,0,0,0.30)]
+      "
     >
 
       {/* =================================================
@@ -89,11 +93,17 @@ function ServiceCard13({
                 h-9
                 w-9
                 shrink-0
+
                 items-center
                 justify-center
+
                 rounded-full
+
                 bg-purple-600
+
                 text-white
+
+                shadow-[0_5px_12px_rgba(0,0,0,0.18)]
               "
             >
 
@@ -117,8 +127,12 @@ function ServiceCard13({
                 h-9
                 w-9
                 shrink-0
+
                 rounded-full
+
                 object-cover
+
+                shadow-[0_5px_12px_rgba(0,0,0,0.18)]
               "
             />
 
@@ -162,11 +176,16 @@ function ServiceCard13({
         <h2
           className="
             mb-4
+
             min-h-[48px]
+
             line-clamp-2
+
             text-lg
             font-semibold
+
             leading-6
+
             text-gray-900
           "
         >
@@ -181,10 +200,15 @@ function ServiceCard13({
         <div
           className="
             mb-4
+
             flex
+
             min-h-[58px]
+
             flex-wrap
+
             content-start
+
             gap-2
           "
         >
@@ -196,11 +220,15 @@ function ServiceCard13({
                 key={index}
                 className="
                   rounded-full
+
                   bg-purple-100
+
                   px-3
                   py-1.5
+
                   text-xs
                   font-medium
+
                   text-purple-700
                 "
               >
@@ -220,10 +248,14 @@ function ServiceCard13({
         <div
           className="
             mb-4
+
             flex
             items-center
+
             gap-4
+
             text-xs
+
             text-gray-500
           "
         >
@@ -293,8 +325,10 @@ function ServiceCard13({
             flex
             items-center
             justify-between
+
             border-t
-            border-gray-200
+            border-gray-300/70
+
             pt-4
           "
         >

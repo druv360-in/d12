@@ -5,73 +5,306 @@ export default function ProfileCard48({
   name = "Emma Thompson",
   field = "Computer Science",
   university = "Stanford University",
-  image = "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=80",
+  image =
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=80",
   rating = 4.9,
   projects = 89,
   reviews = 127,
-  about = "Full-stack developer passionate about creating beautiful and functional web applications. 3 years of experience in modern web technologies.",
-  skills = ["React", "Node.js", "Python", "UI/UX"]
+  about =
+    "Full-stack developer passionate about creating beautiful and functional web applications. 3 years of experience in modern web technologies.",
+  skills = ["React", "Node.js", "Python", "UI/UX"],
 }) {
+  // =====================================================
+  // SCROLL TO REVIEWS
+  // =====================================================
+
+  const handleReviewsClick = () => {
+    const reviewsSection = document.getElementById("reviews-section");
+
+    if (reviewsSection) {
+      reviewsSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
-<div className="w-full">
-      {/* 1. PURPLE CARD SECTION */}
-      <div className="rounded-3xl bg-gradient-to-br from-violet-600 via-purple-600 to-purple-700 p-5 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+    <div className="w-full">
+      {/* =====================================================
+          PROFILE CARD
+      ===================================================== */}
+
+      <div
+        className="
+          mx-auto
+          w-full
+          max-w-[1600px]
+          rounded-3xl
+          bg-gradient-to-br
+          from-violet-600
+          via-purple-600
+          to-purple-700
+          p-5
+          shadow-[0_12px_25px_rgba(0,0,0,0.18)]
+          transition-all
+          duration-300
+          ease-out
+          sm:p-6
+          hover:-translate-y-2
+          hover:scale-[1.01]
+          hover:shadow-[0_25px_50px_rgba(0,0,0,0.30)]
+        "
+      >
+        {/* =====================================================
+            PROFILE TOP
+        ===================================================== */}
+
         <div className="flex items-start gap-4">
+          {/* PROFILE IMAGE */}
+
           <img
             src={image}
             alt={name}
-            className="h-24 w-24 shrink-0 rounded-2xl border-[3px] border-white/30 object-cover"
+            className="
+              h-24
+              w-24
+              shrink-0
+              rounded-2xl
+              border-[3px]
+              border-white/30
+              object-cover
+              shadow-[0_8px_18px_rgba(0,0,0,0.20)]
+            "
           />
-          <div className="flex-1 pt-1 min-w-0">
-            <h2 className="text-xl font-bold leading-[1.2] text-gray-900">{name}</h2>
-            <p className="mt-1 text-sm text-white/90">{field}</p>
-            <div className="mt-1 flex items-center gap-1.5 text-sm text-white/90">
-              <MapPin size={15} strokeWidth={2.5} />
-              <span>{university}</span>
+
+          {/* NAME + DETAILS */}
+
+          <div className="min-w-0 flex-1 pt-1">
+            <h2
+              className="
+                text-xl
+                font-bold
+                leading-[1.2]
+                text-white
+              "
+            >
+              {name}
+            </h2>
+
+            <p className="mt-1 text-sm text-white/90">
+              {field}
+            </p>
+
+            <div
+              className="
+                mt-1
+                flex
+                items-center
+                gap-1.5
+                text-sm
+                text-white/90
+              "
+            >
+              <MapPin
+                size={15}
+                strokeWidth={2.5}
+              />
+
+              <span className="truncate">
+                {university}
+              </span>
             </div>
           </div>
         </div>
 
-        <div className="bg-white/15 backdrop-blur-sm rounded-2xl mt-5 p-4 flex justify-between items-center">
-          <div className="text-center flex-1">
+        {/* =====================================================
+            STATS
+        ===================================================== */}
+
+        <div
+          className="
+            mt-5
+            flex
+            items-center
+            justify-between
+            rounded-2xl
+            bg-white/15
+            p-4
+            backdrop-blur-sm
+            shadow-[0_8px_18px_rgba(0,0,0,0.10)]
+          "
+        >
+          {/* =================================================
+              RATING
+          ================================================= */}
+
+          <div className="flex-1 text-center">
             <div className="flex items-center justify-center gap-1.5">
-              <Star size={18} fill="#facc15" color="#facc15" strokeWidth={0} />
-              <span className="text-white text- font-bold">{rating}</span>
+              <Star
+                size={18}
+                fill="#facc15"
+                color="#facc15"
+                strokeWidth={0}
+              />
+
+              <span className="font-bold text-white">
+                {rating}
+              </span>
             </div>
-            <p className="text-white/80 text- mt-1">Rating</p>
+
+            <p className="mt-1 text-sm text-white/80">
+              Rating
+            </p>
           </div>
-          <div className="w-px h-10 bg-white/20"></div>
-          <div className="text-center flex-1">
-            <p className="text-white text- font-bold">{projects}</p>
-            <p className="text-white/80 text- mt-1">Projects</p>
+
+          {/* DIVIDER */}
+
+          <div className="h-10 w-px bg-white/20" />
+
+          {/* =================================================
+              PROJECTS
+          ================================================= */}
+
+          <div className="flex-1 text-center">
+            <p className="font-bold text-white">
+              {projects}
+            </p>
+
+            <p className="mt-1 text-sm text-white/80">
+              Projects
+            </p>
           </div>
-          <div className="w-px h-10 bg-white/20"></div>
-          <div className="text-center flex-1">
-            <p className="text-white text- font-bold">{reviews}</p>
-            <p className="text-white/80 text- mt-1">Reviews</p>
-          </div>
+
+          {/* DIVIDER */}
+
+          <div className="h-10 w-px bg-white/20" />
+
+          {/* =================================================
+              REVIEWS
+          ================================================= */}
+
+          <button
+            type="button"
+            onClick={handleReviewsClick}
+            className="
+              flex
+              flex-1
+              cursor-pointer
+              flex-col
+              items-center
+              justify-center
+              rounded-xl
+              py-1
+              text-center
+              transition-all
+              duration-300
+              ease-out
+              hover:-translate-y-1
+              hover:bg-white/10
+              hover:shadow-[0_8px_18px_rgba(0,0,0,0.15)]
+              active:scale-95
+            "
+          >
+            <p className="font-bold text-white">
+              {reviews}
+            </p>
+
+            <p
+              className="
+                mt-1
+                text-sm
+                text-white/80
+                transition-colors
+                duration-300
+                hover:text-white
+              "
+            >
+              Reviews
+            </p>
+          </button>
         </div>
       </div>
 
-      {/* 2. ABOUT ME SECTION <-- HERE */}
+      {/* =====================================================
+          ABOUT
+      ===================================================== */}
+
       {about && (
-        <div className="mt-6 px-1">
-          <h3 className="text- font-bold text-gray-900 mb-3">About Me</h3>
-          <p className="text-gray-500 text- leading-[1.6]">
+        <div
+          className="
+            mx-auto
+            mt-6
+            w-full
+            max-w-[1600px]
+            px-1
+          "
+        >
+          <h3
+            className="
+              mb-3
+              font-bold
+              text-gray-900
+            "
+          >
+            About Me
+          </h3>
+
+          <p
+            className="
+              leading-[1.6]
+              text-gray-500
+            "
+          >
             {about}
           </p>
         </div>
       )}
 
-      {/* 3. SKILLS SECTION <-- HERE */}
+      {/* =====================================================
+          SKILLS
+      ===================================================== */}
+
       {skills && skills.length > 0 && (
-        <div className="mt-6 px-1 pb-6">
-          <h3 className="text- font-bold text-gray-900 mb-3">Skills</h3>
+        <div
+          className="
+            mx-auto
+            mt-6
+            w-full
+            max-w-[1600px]
+            px-1
+            pb-6
+          "
+        >
+          <h3
+            className="
+              mb-3
+              font-bold
+              text-gray-900
+            "
+          >
+            Skills
+          </h3>
+
           <div className="flex flex-wrap gap-3">
             {skills.map((skill, i) => (
               <span
                 key={i}
-                className="rounded-full bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-700"
+                className="
+                  rounded-full
+                  bg-purple-100
+                  px-4
+                  py-2
+                  text-sm
+                  font-semibold
+                  text-purple-700
+                  shadow-[0_4px_10px_rgba(0,0,0,0.08)]
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:bg-purple-200
+                  hover:shadow-[0_8px_16px_rgba(0,0,0,0.14)]
+                "
               >
                 {skill}
               </span>
@@ -79,7 +312,6 @@ export default function ProfileCard48({
           </div>
         </div>
       )}
-
     </div>
   );
 }

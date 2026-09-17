@@ -2,161 +2,130 @@ import { Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function TopFreelancerCard10({ freelancer }) {
-
   const navigate = useNavigate();
 
+  const handleProfileClick = () => {
+    navigate(`/profile/${freelancer.id}`, {
+      state: {
+        freelancer,
+      },
+    });
+  };
 
   return (
     <div
-      onClick={() =>
-        navigate(`/profile/${freelancer.id}`, {
-          state: { freelancer },
-        })
-      }
-
+      onClick={handleProfileClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          handleProfileClick();
+        }
+      }}
       className="
         w-full
-
-        bg-[#F1F3F5]
-
+        cursor-pointer
+        rounded-3xl
         border
         border-gray-200/50
-
-        rounded-3xl
-
+        bg-[#F1F3F5]
         p-6
-
         flex
-
         gap-5
 
-        shadow-sm
+        shadow-[0_8px_20px_rgba(0,0,0,0.14)]
 
-        cursor-pointer
+        transition-all
+        duration-300
+        ease-out
+
+        hover:-translate-y-2
+        hover:scale-[1.02]
+        hover:shadow-[0_20px_40px_rgba(0,0,0,0.24)]
       "
     >
+      {/* ==================================================
+          AVATAR
+      ================================================== */}
 
-
-      {/* Avatar */}
       <img
         src={freelancer.avatar}
         alt={freelancer.name}
-
         className="
-          w-20
           h-20
-
-          rounded-2xl
-
-          object-cover
-
+          w-20
           shrink-0
+          rounded-2xl
+          object-cover
+          shadow-[0_6px_14px_rgba(0,0,0,0.12)]
         "
       />
 
+      {/* ==================================================
+          DETAILS
+      ================================================== */}
 
-
-
-
-
-      {/* Details */}
       <div
         className="
           flex
-          flex-1
-
-          justify-between
-
-          gap-4
-
           min-w-0
+          flex-1
+          justify-between
+          gap-4
         "
       >
+        {/* LEFT */}
 
+        <div className="min-w-0 flex-1">
+          {/* NAME */}
 
-        {/* Left Details */}
-        <div
-          className="
-            min-w-0
-            flex-1
-          "
-        >
-
-
-
-          {/* Name */}
           <h4
             className="
-              text-xl
-
-              font-bold
-
-              text-gray-900
-
               whitespace-nowrap
+              text-xl
+              font-bold
+              text-gray-900
             "
           >
             {freelancer.name}
           </h4>
 
+          {/* UNIVERSITY */}
 
-
-
-
-          {/* University */}
           <p
             className="
               mt-1
-
-              text-sm
-
-              text-gray-500
-
               truncate
+              text-sm
+              text-gray-500
             "
           >
             {freelancer.university}
           </p>
 
+          {/* RATING + PROJECTS */}
 
-
-
-
-
-
-          {/* Rating + Projects */}
           <div
             className="
               mt-3
-
               flex
-
               items-center
-
               gap-5
             "
           >
+            {/* RATING */}
 
-
-            {/* Rating */}
             <div
               className="
                 flex
-
                 items-center
-
                 gap-2
-
-                text-sm
-
-                font-semibold
-
-                text-gray-600
-
                 whitespace-nowrap
+                text-sm
+                font-semibold
+                text-gray-600
               "
             >
-
               <Star
                 size={18}
                 fill="#fbbf24"
@@ -164,94 +133,59 @@ function TopFreelancerCard10({ freelancer }) {
               />
 
               {freelancer.rating}
-
             </div>
 
+            {/* PROJECTS */}
 
-
-
-
-            {/* Projects */}
             <div
               className="
-                text-sm
-
-                font-semibold
-
-                text-gray-600
-
                 whitespace-nowrap
+                text-sm
+                font-semibold
+                text-gray-600
               "
             >
               {freelancer.projects} projects
             </div>
-
-
           </div>
-
-
         </div>
 
+        {/* ==================================================
+            RATE
+        ================================================== */}
 
-
-
-
-
-
-
-
-        {/* Rate */}
         <div
           className="
             flex
-
             shrink-0
-
             flex-col
-
             items-end
-
             justify-center
           "
         >
-
           <span
             className="
               text-sm
-
               text-gray-400
             "
           >
             From
           </span>
 
-
-
           <span
             className="
-              text-1xl
-
-             
-
-              text-purple-600
-
               whitespace-nowrap
+              text-xl
+              font-semibold
+              text-purple-600
             "
           >
             ₹{freelancer.rate}/hr
           </span>
-
-
         </div>
-
-
-
       </div>
-
-
     </div>
   );
 }
-
 
 export default TopFreelancerCard10;

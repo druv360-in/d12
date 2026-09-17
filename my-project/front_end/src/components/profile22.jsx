@@ -5,6 +5,7 @@ import {
   Pencil,
   Settings,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile22({
   user = {
@@ -12,13 +13,28 @@ export default function Profile22({
     email: "client@skillbuster.com",
     location: "Mumbai, India",
     memberSince: "January 2026",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    avatar:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
   },
-
-  onEditProfile = () => {},
-
-  onAccountSettings = () => {},
 }) {
+  const navigate = useNavigate();
+
+  // =====================================================
+  // EDIT PROFILE
+  // =====================================================
+
+  const handleEditProfile = () => {
+    navigate("/edit-profile");
+  };
+
+  // =====================================================
+  // ACCOUNT SETTINGS
+  // =====================================================
+
+  const handleAccountSettings = () => {
+    navigate("/account-settings");
+  };
+
   return (
     <section className="w-full">
 
@@ -30,14 +46,13 @@ export default function Profile22({
         className="
           mb-5
           text-2xl
-          lg:text-3xl
           font-bold
           text-gray-900
+          lg:text-3xl
         "
       >
         My Account
       </h1>
-
 
       {/* =====================================================
           PROFILE CARD
@@ -50,12 +65,18 @@ export default function Profile22({
           border-gray-200
           bg-white
           p-5
-          shadow-sm
+          shadow-[0_8px_20px_rgba(0,0,0,0.08)]
+          transition-all
+          duration-300
+          hover:-translate-y-1
+          hover:shadow-[0_16px_35px_rgba(0,0,0,0.14)]
           lg:p-6
         "
       >
 
-        {/* INNER PROFILE AREA */}
+        {/* =================================================
+            INNER PROFILE AREA
+        ================================================= */}
 
         <div
           className="
@@ -73,9 +94,9 @@ export default function Profile22({
             className="
               flex
               flex-col
+              gap-5
               lg:flex-row
               lg:items-center
-              gap-5
             "
           >
 
@@ -93,9 +114,9 @@ export default function Profile22({
                   w-24
                   rounded-2xl
                   object-cover
+                  shadow-[0_8px_18px_rgba(0,0,0,0.14)]
                 "
               />
-
 
               {/* VERIFIED */}
 
@@ -111,10 +132,9 @@ export default function Profile22({
                   justify-center
                   rounded-full
                   bg-white
-                  shadow
+                  shadow-[0_5px_12px_rgba(0,0,0,0.12)]
                 "
               >
-
                 <div
                   className="
                     flex
@@ -126,14 +146,12 @@ export default function Profile22({
                     bg-green-500
                   "
                 >
-
                   <svg
                     width="14"
                     height="14"
                     viewBox="0 0 14 14"
                     fill="none"
                   >
-
                     <path
                       d="M11.7 3.5L5.3 9.9L2.3 7"
                       stroke="white"
@@ -141,15 +159,11 @@ export default function Profile22({
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
-
                   </svg>
-
                 </div>
-
               </div>
 
             </div>
-
 
             {/* =================================================
                 USER INFORMATION
@@ -157,10 +171,11 @@ export default function Profile22({
 
             <div className="min-w-0 flex-1">
 
+              {/* NAME */}
+
               <h2
                 className="
                   text-2xl
-                  lg:text-2xl
                   font-bold
                   text-gray-900
                 "
@@ -168,8 +183,9 @@ export default function Profile22({
                 {user.name}
               </h2>
 
-
-              {/* EMAIL */}
+              {/* =================================================
+                  EMAIL + LOCATION
+              ================================================= */}
 
               <div
                 className="
@@ -184,6 +200,8 @@ export default function Profile22({
                 "
               >
 
+                {/* EMAIL */}
+
                 <div className="flex items-center gap-2">
 
                   <Mail
@@ -196,7 +214,6 @@ export default function Profile22({
                   </span>
 
                 </div>
-
 
                 {/* LOCATION */}
 
@@ -215,8 +232,9 @@ export default function Profile22({
 
               </div>
 
-
-              {/* MEMBER SINCE */}
+              {/* =================================================
+                  MEMBER SINCE
+              ================================================= */}
 
               <div
                 className="
@@ -240,7 +258,6 @@ export default function Profile22({
 
               </div>
 
-
               {/* =================================================
                   ACTION BUTTONS
               ================================================= */}
@@ -250,15 +267,18 @@ export default function Profile22({
                   mt-4
                   flex
                   flex-col
-                  sm:flex-row
                   gap-3
+                  sm:flex-row
                 "
               >
 
-                {/* EDIT */}
+                {/* =================================================
+                    EDIT PROFILE
+                ================================================= */}
 
                 <button
-                  onClick={onEditProfile}
+                  type="button"
+                  onClick={handleEditProfile}
                   className="
                     flex
                     items-center
@@ -273,23 +293,27 @@ export default function Profile22({
                     text-sm
                     font-semibold
                     text-purple-700
-                    shadow-sm
-                    transition
+                    shadow-[0_5px_12px_rgba(109,40,217,0.08)]
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
                     hover:bg-purple-50
+                    hover:shadow-[0_10px_20px_rgba(109,40,217,0.16)]
+                    active:scale-95
                   "
                 >
-
                   <Pencil size={16} />
 
                   Edit Profile
-
                 </button>
 
-
-                {/* SETTINGS */}
+                {/* =================================================
+                    ACCOUNT SETTINGS
+                ================================================= */}
 
                 <button
-                  onClick={onAccountSettings}
+                  type="button"
+                  onClick={handleAccountSettings}
                   className="
                     flex
                     items-center
@@ -304,16 +328,18 @@ export default function Profile22({
                     text-sm
                     font-semibold
                     text-gray-700
-                    shadow-sm
-                    transition
+                    shadow-[0_5px_12px_rgba(0,0,0,0.06)]
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
                     hover:bg-gray-50
+                    hover:shadow-[0_10px_20px_rgba(0,0,0,0.12)]
+                    active:scale-95
                   "
                 >
-
                   <Settings size={16} />
 
                   Account Settings
-
                 </button>
 
               </div>

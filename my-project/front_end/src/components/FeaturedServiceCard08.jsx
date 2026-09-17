@@ -2,9 +2,7 @@ import { Star, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function FeaturedServiceCard08({ service }) {
-
   const navigate = useNavigate();
-
 
   return (
     <div
@@ -25,20 +23,26 @@ function FeaturedServiceCard08({ service }) {
 
         min-h-[180px]
 
-        shadow-sm
+        /* Strong 3D normal shadow */
+        shadow-[0_14px_30px_rgba(0,0,0,0.20)]
+
+        /* Smooth animation */
+        transition-all
+        duration-300
+        ease-out
+
+        /* Hover 3D */
+        hover:-translate-y-2
+        hover:scale-[1.01]
+        hover:shadow-[0_28px_55px_rgba(0,0,0,0.30)]
 
         cursor-pointer
       "
     >
-
-
-
       {/* Service Image */}
-
       <img
         src={service.image}
         alt={service.title}
-
         className="
           w-[120px]
           h-[140px]
@@ -58,14 +62,7 @@ function FeaturedServiceCard08({ service }) {
         "
       />
 
-
-
-
-
-
-
       {/* Content */}
-
       <div
         className="
           flex-1
@@ -73,9 +70,7 @@ function FeaturedServiceCard08({ service }) {
           min-w-0
 
           flex
-
           flex-col
-
           justify-between
 
           p-4
@@ -85,14 +80,7 @@ function FeaturedServiceCard08({ service }) {
           lg:p-8
         "
       >
-
-
-
-
-
-
         {/* Title */}
-
         <h4
           className="
             text-lg
@@ -109,16 +97,7 @@ function FeaturedServiceCard08({ service }) {
           {service.title}
         </h4>
 
-
-
-
-
-
-
-
-
         {/* Description */}
-
         <p
           className="
             mt-3
@@ -137,22 +116,12 @@ function FeaturedServiceCard08({ service }) {
           {service.desc}
         </p>
 
-
-
-
-
-
-
-
-
         {/* Rating + Delivery */}
-
         <div
           className="
             mt-4
 
             flex
-
             items-center
 
             gap-5
@@ -160,12 +129,10 @@ function FeaturedServiceCard08({ service }) {
             lg:gap-8
           "
         >
-
-
+          {/* Rating */}
           <div
             className="
               flex
-
               items-center
 
               gap-2
@@ -179,7 +146,6 @@ function FeaturedServiceCard08({ service }) {
               text-gray-600
             "
           >
-
             <Star
               size={18}
               fill="#fbbf24"
@@ -187,19 +153,12 @@ function FeaturedServiceCard08({ service }) {
             />
 
             {service.rating}
-
           </div>
 
-
-
-
-
-
-
+          {/* Delivery */}
           <div
             className="
               flex
-
               items-center
 
               gap-2
@@ -213,56 +172,34 @@ function FeaturedServiceCard08({ service }) {
               text-gray-600
             "
           >
-
             <Clock
               size={18}
-
-              className="
-                text-gray-400
-              "
+              className="text-gray-400"
             />
 
             {service.days} days
-
           </div>
-
-
-
         </div>
 
-
-
-
-
-
-
-
-
         {/* Freelancer + Price */}
-
         <div
-  className="
-    mt-4
-    flex
-    items-center
-    justify-between
-    gap-2
-    w-full
-    min-w-0
-  "
->
+          className="
+            mt-4
 
+            flex
+            items-center
+            justify-between
 
+            gap-2
 
-
-
-
+            w-full
+            min-w-0
+          "
+        >
           {/* Freelancer */}
-
           <div
             className="
               flex
-
               items-center
 
               gap-3
@@ -272,12 +209,9 @@ function FeaturedServiceCard08({ service }) {
               flex-1
             "
           >
-
-
             <img
               src={service.avatar}
               alt={service.name}
-
               className="
                 h-8
                 w-8
@@ -293,67 +227,49 @@ function FeaturedServiceCard08({ service }) {
               "
             />
 
+            <span
+              className="
+                text-sm
 
+                lg:text-base
 
+                text-gray-600
 
-           <span
-  className="
-    text-sm
-    lg:text-base
-    text-gray-600
-    truncate
-    min-w-0
-    flex-1
-  "
->
-  {service.name}
-</span>
+                truncate
 
+                min-w-0
 
+                flex-1
+              "
+            >
+              {service.name}
+            </span>
           </div>
 
-
-
-
-
-
-
-
-
           {/* Price */}
-
           <span
             className="
-  text-base
-  sm:text-lg
-  lg:text-2xl
-  font-bold
-  text-purple-600
-  whitespace-nowrap
-  shrink-0
-"
+              text-base
+
+              sm:text-lg
+
+              lg:text-2xl
+
+              font-bold
+
+              text-purple-600
+
+              whitespace-nowrap
+
+              shrink-0
+            "
           >
             ₹{service.price}
           </span>
-
-
-
-
-
         </div>
-
-
-
-
-
       </div>
-
-
-
-
     </div>
   );
 }
-
 
 export default FeaturedServiceCard08;

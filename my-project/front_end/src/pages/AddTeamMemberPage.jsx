@@ -13,135 +13,104 @@ export default function AddTeamMemberPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen w-full bg-white">
 
+      {/* =====================================================
+          SIDEBAR
+          ===================================================== */}
 
-      {/* SIDEBAR */}
       <SidebarMenu24
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
       />
 
+      {/* =====================================================
+          MAIN AREA
+          ===================================================== */}
 
-
-      {/* MAIN CONTENT AREA */}
       <div
         className="
-          lg:pl-[360px]
-          xl:pl-[400px]
+          min-h-screen
+          bg-white
+          lg:ml-[320px]
         "
       >
 
+        {/* ===================================================
+            MOBILE / TABLET HEADER
+            =================================================== */}
 
-
-        {/* MOBILE + TABLET HEADER */}
-        <div
-          className="
-            sticky
-            top-0
-            z-50
-            lg:hidden
-          "
-        >
+        <div className="sticky top-0 z-50 lg:hidden">
           <Header01
             onMenuClick={() => setIsSidebarOpen(true)}
           />
         </div>
 
 
+        {/* ===================================================
+            MAIN CONTENT
+            =================================================== */}
+
+        <main className="w-full bg-white pb-24 lg:pb-0">
+
+          {/* =================================================
+              DESKTOP HEADER
+              ================================================= */}
+
+          <div className="hidden lg:block">
+
+            <FiftyFiveComponent
+              onBack={() => navigate(-1)}
+            />
+
+          </div>
 
 
-        {/* DESKTOP CONTENT */}
-        <main
-          className="
-            pb-24
-            lg:pb-0
-          "
-        >
+          {/* =================================================
+              MOBILE / TABLET HEADER
+              ================================================= */}
+
+          <div className="lg:hidden">
+
+            <FiftyFiveComponent
+              onBack={() => navigate(-1)}
+            />
+
+          </div>
+
+
+          {/* =================================================
+              PAGE CONTENT
+              ================================================= */}
 
           <div
             className="
               mx-auto
               w-full
-              max-w-screen-xl
-
               px-4
-              py-4
-
+              py-5
               sm:px-6
               lg:px-8
+              xl:px-10
             "
           >
 
-
-            {/* DESKTOP STICKY PAGE HEADER */}
-            <div
-              className="
-                hidden
-                lg:block
-
-                sticky
-                top-0
-                z-40
-
-                bg-gray-100
-                pt-4
-                pb-3
-              "
-            >
-
-              <FiftyFiveComponent
-                onBack={() => navigate(-1)}
-              />
-
-            </div>
-
-
-
-
-            {/* MOBILE/TABLET PAGE HEADER */}
-            <div
-              className="
-                lg:hidden
-              "
-            >
-
-              <FiftyFiveComponent
-                onBack={() => navigate(-1)}
-              />
-
-            </div>
-
-
-
-
-            {/* PAGE BODY */}
-            <div
-              className="
-                mt-4
-              "
-            >
-
-              <FiftySixComponent />
-
-            </div>
-
+            <FiftySixComponent />
 
           </div>
 
         </main>
 
-
       </div>
 
 
+      {/* =====================================================
+          MOBILE BOTTOM NAVIGATION
+          ===================================================== */}
 
-
-      {/* MOBILE + TABLET BOTTOM MENU */}
       <div className="lg:hidden">
         <BottomMenu05 />
       </div>
-
 
     </div>
   );

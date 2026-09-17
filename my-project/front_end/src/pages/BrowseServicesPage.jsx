@@ -7,8 +7,7 @@ import SidebarMenu24 from "../components/SidebarMenu24";
 import BrowseRightPanel from "../components/14BrowseRightPanel";
 
 function BrowseServicesPage() {
-  const [isSidebarOpen, setIsSidebarOpen] =
-    useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-white">
@@ -19,42 +18,35 @@ function BrowseServicesPage() {
 
       <SidebarMenu24
         isOpen={isSidebarOpen}
-        onClose={() =>
-          setIsSidebarOpen(false)
-        }
+        onClose={() => setIsSidebarOpen(false)}
       />
 
 
       {/* =====================================================
-          PAGE CONTENT
+          MAIN PAGE
       ===================================================== */}
 
-      <div className="lg:ml-[400px]">
+      <div
+        className="
+          lg:ml-[320px]
+          min-h-screen
+          bg-white
+        "
+      >
 
         {/* =================================================
             MOBILE HEADER
         ================================================= */}
 
-        <div
-          className="
-            sticky
-            top-0
-            z-50
-            lg:hidden
-          "
-        >
-
+        <div className="sticky top-0 z-50 lg:hidden">
           <Header01
-            onMenuClick={() =>
-              setIsSidebarOpen(true)
-            }
+            onMenuClick={() => setIsSidebarOpen(true)}
           />
-
         </div>
 
 
         {/* =================================================
-            MAIN + RIGHT PANEL
+            DESKTOP CONTENT
         ================================================= */}
 
         <div
@@ -62,6 +54,7 @@ function BrowseServicesPage() {
             flex
             items-start
             w-full
+            bg-white
           "
         >
 
@@ -73,37 +66,30 @@ function BrowseServicesPage() {
             className="
               flex-1
               min-w-0
+              bg-white
               pb-24
               lg:pb-0
             "
           >
-
             <BrowseServices12 />
-
           </main>
 
 
           {/* =============================================
               RIGHT PANEL
-              
-              IMPORTANT:
-              NOT fixed
-              NOT sticky
-              NOT h-screen
           ============================================= */}
 
-          <div
+          <aside
             className="
               hidden
               xl:block
               w-[400px]
               shrink-0
+              bg-white
             "
           >
-
             <BrowseRightPanel />
-
-          </div>
+          </aside>
 
         </div>
 
@@ -115,9 +101,7 @@ function BrowseServicesPage() {
       ===================================================== */}
 
       <div className="lg:hidden">
-
         <BottomMenu05 />
-
       </div>
 
     </div>

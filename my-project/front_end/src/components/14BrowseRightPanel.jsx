@@ -15,7 +15,11 @@ const providers = [
     projects: 78,
     about:
       "Full-stack developer passionate about creating beautiful and functional web applications.",
-    skills: ["React", "JavaScript", "Tailwind CSS"],
+    skills: [
+      "React",
+      "JavaScript",
+      "Tailwind CSS",
+    ],
   },
 
   {
@@ -31,7 +35,11 @@ const providers = [
     projects: 91,
     about:
       "Creative graphic designer specializing in branding, visual identity and modern web design.",
-    skills: ["Logo Design", "Branding", "UI Design"],
+    skills: [
+      "Logo Design",
+      "Branding",
+      "UI Design",
+    ],
   },
 
   {
@@ -47,7 +55,11 @@ const providers = [
     projects: 105,
     about:
       "Professional video editor creating engaging and high-quality videos for brands and creators.",
-    skills: ["Video Editing", "YouTube", "Reels"],
+    skills: [
+      "Video Editing",
+      "YouTube",
+      "Reels",
+    ],
   },
 
   {
@@ -63,9 +75,14 @@ const providers = [
     projects: 64,
     about:
       "Digital marketing strategist helping brands grow their online presence. Data-driven approach with creative execution.",
-    skills: ["Instagram", "Marketing", "Growth"],
+    skills: [
+      "Instagram",
+      "Marketing",
+      "Growth",
+    ],
   },
 ];
+
 
 const trendingServices = [
   {
@@ -105,8 +122,10 @@ const trendingServices = [
   },
 ];
 
+
 function BrowseRightPanel() {
   const navigate = useNavigate();
+
 
   // =====================================================
   // OPEN FREELANCER PROFILE
@@ -120,6 +139,7 @@ function BrowseRightPanel() {
     });
   };
 
+
   // =====================================================
   // OPEN SERVICE DETAILS
   // =====================================================
@@ -132,14 +152,36 @@ function BrowseRightPanel() {
     });
   };
 
+
   return (
-    <aside className="w-full bg-white border-l border-gray-200">
+    <aside
+      className="
+        w-full
+
+        bg-white
+
+        border-l
+        border-gray-200/70
+      "
+    >
 
       {/* =====================================================
           PROFILE
       ===================================================== */}
 
-      <div className="px-5 py-5 border-b border-gray-200">
+      <div
+        className="
+          px-5
+          py-5
+
+          bg-[#F1F3F5]
+
+          border-b
+          border-gray-200/70
+
+          shadow-[0_8px_18px_rgba(0,0,0,0.14)]
+        "
+      >
 
         <div className="flex items-center gap-3">
 
@@ -149,25 +191,40 @@ function BrowseRightPanel() {
             className="
               w-11
               h-11
+
               rounded-full
+
               object-cover
+
               border-2
               border-purple-600
+
+              shadow-[0_6px_14px_rgba(0,0,0,0.18)]
             "
           />
 
+
           <div>
 
-            <h3 className="text-sm font-bold text-gray-900">
+            <h3
+              className="
+                text-sm
+                font-bold
+                text-gray-900
+              "
+            >
               John Doe
             </h3>
+
 
             <button
               onClick={() => navigate("/profile")}
               className="
                 text-xs
                 text-gray-500
+
                 hover:text-purple-600
+
                 transition
               "
             >
@@ -185,15 +242,39 @@ function BrowseRightPanel() {
           STATS
       ===================================================== */}
 
-      <div className="grid grid-cols-2 gap-3 px-5 py-5">
+      <div
+        className="
+          grid
+          grid-cols-2
+          gap-4
+
+          px-5
+          py-5
+        "
+      >
+
+        {/* ACTIVE PROJECTS */}
 
         <div
           className="
             rounded-2xl
-            bg-purple-50
+
+            bg-[#F1F3F5]
+
             border
             border-purple-200
+
             p-4
+
+            shadow-[0_10px_22px_rgba(0,0,0,0.16)]
+
+            transition-all
+            duration-300
+            ease-out
+
+            hover:-translate-y-2
+
+            hover:shadow-[0_20px_38px_rgba(0,0,0,0.25)]
           "
         >
 
@@ -201,20 +282,42 @@ function BrowseRightPanel() {
             Active Projects
           </p>
 
-          <p className="text-xl font-bold text-purple-700 mt-2">
+          <p
+            className="
+              text-xl
+              font-bold
+              text-purple-700
+              mt-2
+            "
+          >
             12
           </p>
 
         </div>
 
 
+        {/* TOTAL SPENT */}
+
         <div
           className="
             rounded-2xl
-            bg-purple-50
+
+            bg-[#F1F3F5]
+
             border
             border-purple-200
+
             p-4
+
+            shadow-[0_10px_22px_rgba(0,0,0,0.16)]
+
+            transition-all
+            duration-300
+            ease-out
+
+            hover:-translate-y-2
+
+            hover:shadow-[0_20px_38px_rgba(0,0,0,0.25)]
           "
         >
 
@@ -222,7 +325,14 @@ function BrowseRightPanel() {
             Total Spent
           </p>
 
-          <p className="text-xl font-bold text-purple-700 mt-2">
+          <p
+            className="
+              text-xl
+              font-bold
+              text-purple-700
+              mt-2
+            "
+          >
             ₹2.4k
           </p>
 
@@ -237,35 +347,68 @@ function BrowseRightPanel() {
 
       <div className="px-5">
 
-        <div className="flex items-center gap-2 mb-5">
+        <div
+          className="
+            flex
+            items-center
+            gap-2
+            mb-5
+          "
+        >
 
           <TrendingUp
             size={20}
             className="text-purple-600"
           />
 
-          <h2 className="text-lg font-bold text-gray-900">
+          <h2
+            className="
+              text-lg
+              font-bold
+              text-gray-900
+            "
+          >
             Trending Providers
           </h2>
 
         </div>
 
 
-        <div className="space-y-3">
+        <div className="space-y-4">
 
           {providers.map((provider) => (
 
             <div
               key={provider.id}
+              onClick={() =>
+                openProfile(provider)
+              }
               className="
                 flex
                 items-center
                 gap-3
-                rounded-xl
-                p-2
-                -mx-2
-                hover:bg-gray-50
-                transition
+
+                rounded-2xl
+
+                p-3
+
+                bg-[#F1F3F5]
+
+                border
+                border-gray-200/60
+
+                shadow-[0_10px_20px_rgba(0,0,0,0.15)]
+
+                cursor-pointer
+
+                transition-all
+                duration-300
+                ease-out
+
+                hover:-translate-y-2
+                hover:scale-[1.01]
+
+                hover:shadow-[0_20px_38px_rgba(0,0,0,0.25)]
               "
             >
 
@@ -277,33 +420,43 @@ function BrowseRightPanel() {
                 className="
                   w-10
                   h-10
+
                   rounded-full
+
                   object-cover
+
                   shrink-0
+
+                  shadow-[0_5px_12px_rgba(0,0,0,0.16)]
                 "
               />
 
 
               {/* PROVIDER DETAILS */}
 
-              <div className="flex-1 min-w-0">
-
-                {/* CLICK NAME */}
+              <div
+                className="
+                  flex-1
+                  min-w-0
+                "
+              >
 
                 <p
-                  onClick={() => openProfile(provider)}
                   className="
                     font-semibold
                     text-sm
                     text-gray-900
+
                     truncate
-                    cursor-pointer
+
                     hover:text-purple-600
+
                     transition
                   "
                 >
                   {provider.name}
                 </p>
+
 
                 <p
                   className="
@@ -340,9 +493,22 @@ function BrowseRightPanel() {
           TRENDING SERVICES
       ===================================================== */}
 
-      <div className="px-5 mt-10 pb-8">
+      <div
+        className="
+          px-5
+          mt-10
+          pb-8
+        "
+      >
 
-        <h2 className="text-lg font-bold text-gray-900 mb-5">
+        <h2
+          className="
+            text-lg
+            font-bold
+            text-gray-900
+            mb-5
+          "
+        >
           Trending Services
         </h2>
 
@@ -353,15 +519,31 @@ function BrowseRightPanel() {
 
             <div
               key={service.id}
-              onClick={() => openService(service)}
+              onClick={() =>
+                openService(service)
+              }
               className="
                 overflow-hidden
+
                 rounded-2xl
+
                 border
-                border-gray-200
-                bg-white
-                shadow-sm
+                border-gray-200/70
+
+                bg-[#F1F3F5]
+
+                shadow-[0_12px_24px_rgba(0,0,0,0.16)]
+
                 cursor-pointer
+
+                transition-all
+                duration-300
+                ease-out
+
+                hover:-translate-y-2
+                hover:scale-[1.02]
+
+                hover:shadow-[0_24px_45px_rgba(0,0,0,0.26)]
               "
             >
 
@@ -399,7 +581,13 @@ function BrowseRightPanel() {
                   "
                 >
 
-                  <div className="flex items-center gap-1">
+                  <div
+                    className="
+                      flex
+                      items-center
+                      gap-1
+                    "
+                  >
 
                     <Star
                       size={14}
@@ -407,14 +595,25 @@ function BrowseRightPanel() {
                       color="#d4af37"
                     />
 
-                    <span className="text-xs text-gray-600">
+                    <span
+                      className="
+                        text-xs
+                        text-gray-600
+                      "
+                    >
                       {service.rating}
                     </span>
 
                   </div>
 
 
-                  <span className="text-sm font-bold text-purple-700">
+                  <span
+                    className="
+                      text-sm
+                      font-bold
+                      text-purple-700
+                    "
+                  >
                     ₹{service.price}
                   </span>
 

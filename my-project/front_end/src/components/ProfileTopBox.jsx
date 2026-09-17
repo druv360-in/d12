@@ -26,8 +26,8 @@ function ProfileTopBox() {
       {/* Profile Image */}
       <div className="relative shrink-0">
         <img
-          src="https://i.pravatar.cc/100?img=12"
-          alt="John Doe"
+          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400"
+          alt="John Anderson"
           className="w-10 h-10 rounded-full object-cover"
         />
 

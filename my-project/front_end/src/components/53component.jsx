@@ -1,94 +1,372 @@
 import React from "react";
-import { Clock, DollarSign, Calendar } from "lucide-react";
+import {
+  Clock,
+  DollarSign,
+  Calendar,
+} from "lucide-react";
 
-const FiftyThreeComponent = ({ member, onMessage }) => {
+const FiftyThreeComponent = ({
+  member,
+  onMessage,
+  onProfile,
+}) => {
+
+  // =====================================================
+  // VIEW PROFILE
+  // =====================================================
+
+  const handleViewProfile = (e) => {
+    e.stopPropagation();
+
+    if (onProfile) {
+      onProfile(member);
+    }
+  };
+
+  // =====================================================
+  // MESSAGE
+  // =====================================================
+
+  const handleMessage = (e) => {
+    e.stopPropagation();
+
+    if (onMessage) {
+      onMessage(member);
+    }
+  };
+
   return (
-    <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-      {/* Top Row: Avatar + Info + Status */}
-      <div className="flex items-start justify-between mb-3">
-        <div className="flex items-center gap-3">
+    <div
+      className="
+        w-full
+        rounded-2xl
+        border
+        border-gray-100
+        bg-white
+        p-4
+
+        shadow-[0_8px_20px_rgba(0,0,0,0.10)]
+
+        transition-all
+        duration-300
+        ease-out
+
+        hover:-translate-y-2
+        hover:shadow-[0_20px_40px_rgba(0,0,0,0.18)]
+      "
+    >
+
+      {/* =====================================================
+          TOP ROW
+      ===================================================== */}
+
+      <div
+        className="
+          mb-3
+          flex
+          items-start
+          justify-between
+        "
+      >
+
+        {/* AVATAR + INFO */}
+
+        <div
+          className="
+            flex
+            items-center
+            gap-3
+          "
+        >
+
           <img
             src={member.avatar}
             alt={member.name}
-            className="w-14 h-14 rounded-xl object-cover"
+            className="
+              h-14
+              w-14
+              rounded-xl
+              object-cover
+              shadow-[0_4px_10px_rgba(0,0,0,0.10)]
+            "
           />
 
           <div>
-            <h3 className="text-base font-bold text-gray-900">
+
+            {/* NAME */}
+
+            <h3
+              className="
+                text-base
+                font-bold
+                text-gray-900
+              "
+            >
               {member.name}
             </h3>
 
-            <p className="text-sm text-violet-700 font-medium">
+            {/* ROLE */}
+
+            <p
+              className="
+                text-sm
+                font-medium
+                text-violet-700
+              "
+            >
               {member.role}
             </p>
 
-            <p className="text-xs text-gray-500">
+            {/* UNIVERSITY */}
+
+            <p
+              className="
+                text-xs
+                text-gray-500
+              "
+            >
               {member.university}
             </p>
+
           </div>
         </div>
 
-        <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs font-semibold">
+        {/* STATUS */}
+
+        <span
+          className="
+            rounded-full
+            bg-emerald-50
+            px-3
+            py-1
+            text-xs
+            font-semibold
+            text-emerald-600
+          "
+        >
           {member.status}
         </span>
+
       </div>
 
-      {/* Stats Row */}
-      <div className="grid grid-cols-3 gap-2 mb-3">
-        <div className="bg-violet-50 rounded-xl p-3">
-          <Clock className="w-4 h-4 text-violet-700 mb-1" />
+      {/* =====================================================
+          STATS
+      ===================================================== */}
 
-          <p className="text-xs text-gray-500">
+      <div
+        className="
+          mb-3
+          grid
+          grid-cols-3
+          gap-2
+        "
+      >
+
+        {/* TOTAL HOURS */}
+
+        <div
+          className="
+            rounded-xl
+            bg-violet-50
+            p-3
+            transition-all
+            duration-300
+            hover:-translate-y-1
+            hover:shadow-[0_8px_16px_rgba(0,0,0,0.10)]
+          "
+        >
+
+          <Clock
+            className="
+              mb-1
+              h-4
+              w-4
+              text-violet-700
+            "
+          />
+
+          <p
+            className="
+              text-xs
+              text-gray-500
+            "
+          >
             Total Hours
           </p>
 
-          <p className="text-base font-bold text-gray-900">
+          <p
+            className="
+              text-base
+              font-bold
+              text-gray-900
+            "
+          >
             {member.hours}
           </p>
+
         </div>
 
-        <div className="bg-emerald-50 rounded-xl p-3">
-          <DollarSign className="w-4 h-4 text-emerald-600 mb-1" />
+        {/* TOTAL EARNED */}
 
-          <p className="text-xs text-gray-500">
+        <div
+          className="
+            rounded-xl
+            bg-emerald-50
+            p-3
+            transition-all
+            duration-300
+            hover:-translate-y-1
+            hover:shadow-[0_8px_16px_rgba(0,0,0,0.10)]
+          "
+        >
+
+          <DollarSign
+            className="
+              mb-1
+              h-4
+              w-4
+              text-emerald-600
+            "
+          />
+
+          <p
+            className="
+              text-xs
+              text-gray-500
+            "
+          >
             Total Earned
           </p>
 
-          <p className="text-base font-bold text-gray-900">
+          <p
+            className="
+              text-base
+              font-bold
+              text-gray-900
+            "
+          >
             ${member.earned}
           </p>
+
         </div>
 
-        <div className="bg-violet-50 rounded-xl p-3">
-          <Calendar className="w-4 h-4 text-violet-700 mb-1" />
+        {/* SINCE */}
 
-          <p className="text-xs text-gray-500">
+        <div
+          className="
+            rounded-xl
+            bg-violet-50
+            p-3
+            transition-all
+            duration-300
+            hover:-translate-y-1
+            hover:shadow-[0_8px_16px_rgba(0,0,0,0.10)]
+          "
+        >
+
+          <Calendar
+            className="
+              mb-1
+              h-4
+              w-4
+              text-violet-700
+            "
+          />
+
+          <p
+            className="
+              text-xs
+              text-gray-500
+            "
+          >
             Since
           </p>
 
-          <p className="text-sm font-bold text-gray-900">
+          <p
+            className="
+              text-sm
+              font-bold
+              text-gray-900
+            "
+          >
             {member.since}
           </p>
+
         </div>
+
       </div>
 
-      {/* Buttons */}
-      <div className="flex gap-2">
+      {/* =====================================================
+          BUTTONS
+      ===================================================== */}
+
+      <div
+        className="
+          flex
+          gap-2
+        "
+      >
+
+        {/* =================================================
+            VIEW PROFILE
+        ================================================= */}
+
         <button
           type="button"
-          className="flex-1 bg-violet-50 text-violet-700 font-semibold py-2.5 rounded-xl text-sm hover:bg-violet-100 transition"
+          onClick={handleViewProfile}
+          className="
+            flex-1
+            rounded-xl
+            bg-violet-50
+            py-2.5
+            text-sm
+            font-semibold
+            text-violet-700
+
+            transition-all
+            duration-300
+
+            hover:-translate-y-1
+            hover:bg-violet-100
+            hover:shadow-[0_8px_16px_rgba(124,58,237,0.15)]
+
+            active:scale-[0.98]
+          "
         >
           View Profile
         </button>
 
+        {/* =================================================
+            MESSAGE
+        ================================================= */}
+
         <button
           type="button"
-          onClick={() => onMessage(member)}
-          className="flex-1 bg-pink-50 text-pink-600 font-semibold py-2.5 rounded-xl text-sm hover:bg-pink-100 transition"
+          onClick={handleMessage}
+          className="
+            flex-1
+            rounded-xl
+            bg-pink-50
+            py-2.5
+            text-sm
+            font-semibold
+            text-pink-600
+
+            transition-all
+            duration-300
+
+            hover:-translate-y-1
+            hover:bg-pink-100
+            hover:shadow-[0_8px_16px_rgba(236,72,153,0.15)]
+
+            active:scale-[0.98]
+          "
         >
           Message
         </button>
+
       </div>
+
     </div>
   );
 };

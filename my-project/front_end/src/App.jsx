@@ -14,10 +14,11 @@ import BrowseServicesPage from "./pages/BrowseServicesPage";
 import ChatPage from "./pages/ChatPage";
 import ChatDetailsPage from "./pages/ChatDetailsPage";
 import ChatNotFound from "./components/chatnotfound";
-
+import AccountSettings from "./components/AccountSettings";
 import DashboardPage from "./pages/DashboardPage";
 import ProfilePage from "./pages/ProfilePage";
 import MenuPage from "./pages/MenuPage";
+import EditProfile from "./components/EditProfile";
 import TemplateDetailsPage from "./pages/TemplateDetailsPage";
 import ProfileDetailPage from "./pages/ProfileDetailPage";
 import TeamPage from "./pages/TeamPage";
@@ -144,8 +145,16 @@ function App() {
             path="/profile/:id"
             element={<ProfileDetailPage />}
           />
+          <Route
+           path="/edit-profile"
+           element={<EditProfile />}
+          
+          />
 
-
+          <Route
+            path="/account-settings"
+            element={<AccountSettings />}
+          />
           {/* ================= TEAM ================= */}
 
           <Route

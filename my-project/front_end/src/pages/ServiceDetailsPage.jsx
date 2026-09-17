@@ -2,7 +2,7 @@
 import { Menu, MessageCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import SidebarMenu24 from "../components/Sidebarmenu24";
+import SidebarMenu24 from "../components/SidebarMenu24";
 import Component42SD from "../components/42componentSD";
 import Component43 from "../components/43component";
 import PortfolioList45 from "../components/45component";

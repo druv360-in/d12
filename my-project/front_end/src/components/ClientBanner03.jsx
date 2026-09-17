@@ -6,7 +6,26 @@ function ClientBanner03() {
   return (
     <section
       onClick={() => navigate("/projects")}
-      className="cursor-pointer rounded-3xl bg-gradient-to-r from-purple-700 via-purple-600 to-violet-500 px-8 py-6 shadow-lg transition hover:shadow-xl"
+      className="
+        cursor-pointer
+        rounded-3xl
+        bg-gradient-to-r
+        from-purple-700
+        via-purple-600
+        to-violet-500
+        px-8
+        py-6
+
+        shadow-[0_8px_20px_rgba(0,0,0,0.16)]
+
+        transition-all
+        duration-300
+        ease-out
+
+        hover:-translate-y-2
+        hover:scale-[1.02]
+        hover:shadow-[0_20px_40px_rgba(0,0,0,0.25)]
+      "
     >
       <div className="flex items-center justify-between">
 

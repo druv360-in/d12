@@ -15,33 +15,65 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#FFFFFF]">
+
+      {/* Sidebar */}
       <SidebarMenu24
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
       />
 
+      {/* Main Content */}
       <div className="lg:pl-[360px] xl:pl-[400px]">
+
+        {/* Mobile / Tablet Header */}
         <div className="sticky top-0 z-50 lg:hidden">
-          <Header01 onMenuClick={() => setIsSidebarOpen(true)} />
+          <Header01
+            onMenuClick={() => setIsSidebarOpen(true)}
+          />
         </div>
 
         <main className="w-full pb-24 lg:pb-0">
-          <div className="mx-auto w-full max-w-[1500px] space-y-8 px-4 py-6 sm:px-6 lg:px-10 lg:py-8">
+
+          <div
+            className="
+              mx-auto
+              w-full
+              max-w-[1500px]
+              space-y-8
+              px-4
+              py-6
+              sm:px-6
+              lg:px-10
+              lg:py-8
+            "
+          >
+
+            {/* Hero */}
             <HeroBanner02 />
 
+            {/* Client + Post Project */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <ClientBanner03 />
               <PostProjectCard04 />
             </div>
 
+            {/* Categories */}
             <PopularCategories07 />
+
+            {/* Featured Services */}
             <FeaturedServices09 />
+
+            {/* Top Freelancers */}
             <TopFreelancers11 />
+
           </div>
+
         </main>
       </div>
 
+      {/* Mobile Bottom Navigation */}
       <BottomMenu05 />
+
     </div>
   );
 }
