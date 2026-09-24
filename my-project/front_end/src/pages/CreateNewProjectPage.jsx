@@ -37,8 +37,8 @@ export default function CreateNewProjectPage() {
 
       <div
         className="
-          lg:pl-[360px]
-          xl:pl-[400px]
+          lg:pl-[272px]
+          xl:pl-[272px]
         "
       >
 

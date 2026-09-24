@@ -15,7 +15,8 @@ const SixtyComponent = () => {
       id: 1,
       name: "Emma Thompson",
       role: "Lead Developer",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
       contribution: 45,
       tasksCompleted: 12,
       totalTasks: 18,
@@ -27,7 +28,8 @@ const SixtyComponent = () => {
       id: 2,
       name: "Marcus Johnson",
       role: "UI/UX Designer",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+      avatar:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
       contribution: 30,
       tasksCompleted: 8,
       totalTasks: 12,
@@ -39,7 +41,8 @@ const SixtyComponent = () => {
       id: 3,
       name: "Sophia Chen",
       role: "Backend Developer",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400",
+      avatar:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400",
       contribution: 25,
       tasksCompleted: 6,
       totalTasks: 10,
@@ -61,7 +64,6 @@ const SixtyComponent = () => {
         w-full
       "
     >
-
       {/* =====================================================
           SECTION HEADER
       ===================================================== */}
@@ -74,33 +76,29 @@ const SixtyComponent = () => {
           mb-6
         "
       >
-
         <CheckSquare
-          size={25}
+          size={27}
           strokeWidth={2}
           className="text-violet-700"
         />
 
         <h2
           className="
-            text-xl
-            lg:text-2xl
+            text-2xl
+            lg:text-3xl
             font-bold
             text-gray-900
           "
         >
           Team Collaborators ({collaborators.length})
         </h2>
-
       </div>
-
 
       {/* =====================================================
           COLLABORATOR CARDS
       ===================================================== */}
 
       <div className="flex flex-col gap-5">
-
         {collaborators.map((member) => {
           const taskPercentage =
             (member.tasksCompleted / member.totalTasks) * 100;
@@ -114,11 +112,16 @@ const SixtyComponent = () => {
                 border
                 border-gray-200
                 bg-white
-                p-4
-                lg:p-4
+                p-5
+                lg:p-5
+
+                shadow-sm
+                hover:shadow-xl
+                hover:-translate-y-1
+                transition-all
+                duration-300
               "
             >
-
               {/* =================================================
                   PROFILE
               ================================================= */}
@@ -128,14 +131,12 @@ const SixtyComponent = () => {
                   flex
                   items-center
                   gap-4
-                  mb-3
+                  mb-4
                 "
               >
-
                 {/* Avatar */}
 
                 <div className="relative shrink-0">
-
                   <img
                     src={member.avatar}
                     alt={member.name}
@@ -146,7 +147,6 @@ const SixtyComponent = () => {
                       object-cover
                     "
                   />
-
 
                   {/* Online Indicator */}
 
@@ -165,22 +165,17 @@ const SixtyComponent = () => {
                       "
                     />
                   )}
-
                 </div>
-
 
                 {/* =================================================
                     NAME + ROLE
                 ================================================= */}
 
                 <div className="min-w-0">
-
-                  {/* Same size as Team Collaborators (3) */}
-
                   <h3
                     className="
-                      text-xl
-                      lg:text-2xl
+                      text-2xl
+                      lg:text-3xl
                       font-bold
                       text-gray-900
                       leading-tight
@@ -191,7 +186,8 @@ const SixtyComponent = () => {
 
                   <p
                     className="
-                      text-sm
+                      text-base
+                      lg:text-lg
                       text-violet-600
                       font-medium
                       mt-1
@@ -199,11 +195,8 @@ const SixtyComponent = () => {
                   >
                     {member.role}
                   </p>
-
                 </div>
-
               </div>
-
 
               {/* =================================================
                   CURRENT TASK
@@ -216,23 +209,21 @@ const SixtyComponent = () => {
                   bg-violet-50
                   rounded-xl
                   px-4
-                  py-2.5
-                  mb-3
+                  py-3
+                  mb-4
                 "
               >
-
                 <p
                   className="
-                    text-sm
+                    text-base
+                    lg:text-lg
                     text-violet-700
                     italic
                   "
                 >
                   "{member.currentTask}"
                 </p>
-
               </div>
-
 
               {/* =================================================
                   CONTRIBUTION + TASKS
@@ -245,28 +236,26 @@ const SixtyComponent = () => {
                   grid
                   grid-cols-2
                   gap-6
-                  mb-4
+                  mb-5
                 "
               >
-
                 {/* =================================================
                     CONTRIBUTION
                 ================================================= */}
 
                 <div>
-
                   <div
                     className="
                       flex
                       items-center
                       justify-between
-                      mb-1.5
+                      mb-2
                     "
                   >
-
                     <span
                       className="
-                        text-xs
+                        text-sm
+                        lg:text-base
                         text-gray-500
                       "
                     >
@@ -275,16 +264,15 @@ const SixtyComponent = () => {
 
                     <span
                       className="
-                        text-sm
+                        text-base
+                        lg:text-lg
                         font-bold
                         text-gray-900
                       "
                     >
                       {member.contribution}%
                     </span>
-
                   </div>
-
 
                   <div
                     className="
@@ -295,7 +283,6 @@ const SixtyComponent = () => {
                       overflow-hidden
                     "
                   >
-
                     <div
                       className="
                         h-full
@@ -306,30 +293,26 @@ const SixtyComponent = () => {
                         width: `${member.contribution}%`,
                       }}
                     />
-
                   </div>
-
                 </div>
-
 
                 {/* =================================================
                     TASKS COMPLETED
                 ================================================= */}
 
                 <div>
-
                   <div
                     className="
                       flex
                       items-center
                       justify-between
-                      mb-1.5
+                      mb-2
                     "
                   >
-
                     <span
                       className="
-                        text-xs
+                        text-sm
+                        lg:text-base
                         text-gray-500
                       "
                     >
@@ -338,7 +321,8 @@ const SixtyComponent = () => {
 
                     <span
                       className="
-                        text-sm
+                        text-base
+                        lg:text-lg
                         font-bold
                         text-gray-900
                       "
@@ -346,9 +330,7 @@ const SixtyComponent = () => {
                       {member.tasksCompleted}/
                       {member.totalTasks} completed
                     </span>
-
                   </div>
-
 
                   <div
                     className="
@@ -359,7 +341,6 @@ const SixtyComponent = () => {
                       overflow-hidden
                     "
                   >
-
                     <div
                       className="
                         h-full
@@ -370,13 +351,9 @@ const SixtyComponent = () => {
                         width: `${taskPercentage}%`,
                       }}
                     />
-
                   </div>
-
                 </div>
-
               </div>
-
 
               {/* =================================================
                   ACTION BUTTONS
@@ -391,7 +368,6 @@ const SixtyComponent = () => {
                   gap-2
                 "
               >
-
                 {/* View Work */}
 
                 <button
@@ -407,20 +383,19 @@ const SixtyComponent = () => {
                     items-center
                     justify-center
                     gap-2
-                    h-9
+                    h-10
                     rounded-full
                     bg-violet-50
                     text-violet-700
-                    text-sm
+                    text-base
                     font-medium
                     hover:bg-violet-100
                     transition
                   "
                 >
-                  <Eye size={16} />
+                  <Eye size={17} />
                   View Work
                 </button>
-
 
                 {/* Message */}
 
@@ -432,28 +407,24 @@ const SixtyComponent = () => {
                     items-center
                     justify-center
                     gap-2
-                    h-9
+                    h-10
                     rounded-full
                     bg-pink-50
                     text-pink-600
-                    text-sm
+                    text-base
                     font-medium
                     hover:bg-pink-100
                     transition
                   "
                 >
-                  <MessageSquare size={16} />
+                  <MessageSquare size={17} />
                   Message
                 </button>
-
               </div>
-
             </div>
           );
         })}
-
       </div>
-
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import { Star, Zap } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import FreelancerCard19 from "./FreelancerCard19";
 
-
 function FeaturedFreelancers18() {
-
+  const navigate = useNavigate();
 
   const freelancers = [
     {
@@ -31,44 +31,50 @@ function FeaturedFreelancers18() {
     },
   ];
 
+  // ============================================================
+  // NAVIGATE TO PROFILE DETAIL
+  // ============================================================
 
+  const handleFreelancerClick = (freelancer) => {
+    // Always move the current page to the top
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
+
+    navigate(`/profile/${freelancer.id}`, {
+      state: {
+        freelancer: {
+          id: freelancer.id,
+          name: `${freelancer.firstName} ${freelancer.lastName}`,
+          field: "Computer Science",
+          university: freelancer.school,
+          avatar: freelancer.avatar,
+          rating: freelancer.rating,
+          projects: freelancer.projects,
+          reviews: 127,
+          about:
+            "Full-stack developer passionate about creating beautiful and functional web applications. 3 years of experience in modern web technologies.",
+          skills: ["React", "Node.js", "Python", "UI/UX"],
+          hourlyRate: Number(
+            freelancer.rate.replace("$", "").replace("/hr", "")
+          ),
+        },
+      },
+    });
+  };
 
   return (
+    <div className="w-full rounded-3xl bg-white p-5 shadow-sm">
 
-    <div
-      className="
-        w-full
-        bg-white
-        rounded-3xl
-        p-5
-        shadow-sm
-      "
-    >
+      {/* =====================================================
+          HEADER
+      ====================================================== */}
 
+      <div className="mb-5 flex items-center justify-between">
 
-
-      {/* Header */}
-
-      <div
-        className="
-          flex
-          items-center
-          justify-between
-          mb-5
-        "
-      >
-
-
-        <div
-          className="
-            flex
-            items-center
-            gap-3
-            text-slate-800
-            text-xl
-            font-bold
-          "
-        >
+        <div className="flex items-center gap-3 text-xl font-bold text-slate-800">
 
           <Star
             size={24}
@@ -76,16 +82,11 @@ function FeaturedFreelancers18() {
             fill="currentColor"
           />
 
-
           <span>
             Featured Freelancers
           </span>
 
-
         </div>
-
-
-
 
 
         {/* Premium Badge */}
@@ -95,93 +96,60 @@ function FeaturedFreelancers18() {
             flex
             items-center
             gap-2
+            rounded-full
             bg-amber-100
-            text-amber-800
             px-4
             py-2
-            rounded-full
             text-sm
             font-semibold
+            text-amber-800
           "
         >
-
-          <Zap
-            size={16}
-          />
+          <Zap size={16} />
 
           <span>
             Premium
           </span>
-
-
         </div>
 
+      </div>
+
+
+      {/* =====================================================
+          FREELANCER CARDS
+      ====================================================== */}
+
+      <div className="flex flex-col gap-4">
+
+        {freelancers.map((freelancer) => (
+          <FreelancerCard19
+            key={freelancer.id}
+            freelancer={freelancer}
+            onClick={() => handleFreelancerClick(freelancer)}
+          />
+        ))}
 
       </div>
 
 
-
-
-
-
-
-
-      {/* Freelancer Cards */}
-
-      <div
-        className="
-          flex
-          flex-col
-          gap-4
-        "
-      >
-
-        {
-          freelancers.map((freelancer)=>(
-
-            <FreelancerCard19
-
-              key={freelancer.id}
-
-              freelancer={freelancer}
-
-            />
-
-          ))
-        }
-
-
-      </div>
-
-
-
-
-
-
-
-      {/* Footer */}
+      {/* =====================================================
+          FOOTER
+      ====================================================== */}
 
       <p
         className="
-          text-slate-400
-          text-sm
-          text-center
           mt-5
+          text-center
+          text-sm
+          text-slate-400
         "
       >
-
-        Featured listings get 5× more visibility. Want to feature your services?
-
+        Featured listings get 5× more visibility. Want to feature your
+        services?
       </p>
 
-
-
-
     </div>
-
   );
-
 }
-
 
 export default FeaturedFreelancers18;

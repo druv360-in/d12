@@ -1,5 +1,5 @@
-
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Eye,
   Edit,
@@ -9,6 +9,8 @@ import {
   Clock3,
 } from "lucide-react";
 
+import ProjectTaskSideOption from "./projecttask_sideoption";
+
 const SixtyThreeComponent = ({
   task,
   onView,
@@ -16,6 +18,13 @@ const SixtyThreeComponent = ({
   onDelete,
   onToggleComplete,
 }) => {
+  const navigate = useNavigate();
+
+  // =========================================================
+  // SIDE OPTIONS DROPDOWN STATE
+  // =========================================================
+  const [showSideOptions, setShowSideOptions] = useState(false);
+
   const priorityColors = {
     high: "bg-red-50 text-red-600",
     medium: "bg-amber-50 text-amber-600",
@@ -23,14 +32,73 @@ const SixtyThreeComponent = ({
   };
 
   const statusColors = {
-    "In Progress":
-      "bg-violet-50 text-violet-700",
+    "In Progress": "bg-violet-50 text-violet-700",
+    "To Do": "bg-gray-100 text-gray-600",
+    Completed: "bg-emerald-50 text-emerald-600",
+  };
 
-    "To Do":
-      "bg-gray-100 text-gray-600",
+  // =========================================================
+  // VIEW TASK
+  // =========================================================
+  const handleView = () => {
+    if (!task?.id) {
+      console.error("Task ID is missing:", task);
+      return;
+    }
 
-    Completed:
-      "bg-emerald-50 text-emerald-600",
+    navigate(`/projecttask-view/${task.id}`, {
+      state: {
+        task,
+      },
+    });
+  };
+
+  // =========================================================
+  // DETAILS
+  // =========================================================
+  const handleDetails = () => {
+    if (!task?.id) {
+      console.error("Task ID is missing:", task);
+      return;
+    }
+
+    navigate(`/projecttask-view/${task.id}`, {
+      state: {
+        task,
+      },
+    });
+  };
+
+  // =========================================================
+  // EDIT TASK
+  // =========================================================
+  const handleEdit = () => {
+    if (!task?.id) {
+      console.error("Task ID is missing:", task);
+      return;
+    }
+
+    navigate(`/projecttask-edit/${task.id}`, {
+      state: {
+        task,
+      },
+    });
+  };
+
+  // =========================================================
+  // DELETE TASK
+  // =========================================================
+  const handleDelete = () => {
+    if (!task?.id) {
+      console.error("Task ID is missing:", task);
+      return;
+    }
+
+    navigate(`/projecttask-delete/${task.id}`, {
+      state: {
+        task,
+      },
+    });
   };
 
   return (
@@ -56,13 +124,8 @@ const SixtyThreeComponent = ({
           TOP SECTION
       ===================================================== */}
 
-      <div
-        className="
-          flex
-          items-start
-          gap-4
-        "
-      >
+      <div className="flex items-start gap-4">
+
         {/* =================================================
             CHECKBOX
         ================================================= */}
@@ -85,12 +148,8 @@ const SixtyThreeComponent = ({
             TASK INFORMATION
         ================================================= */}
 
-        <div
-          className="
-            flex-1
-            min-w-0
-          "
-        >
+        <div className="flex-1 min-w-0">
+
           {/* TASK TITLE */}
 
           <h3
@@ -135,27 +194,13 @@ const SixtyThreeComponent = ({
               flex-wrap
             "
           >
-            <span
-              className="
-                flex
-                items-center
-                gap-1.5
-              "
-            >
+            <span className="flex items-center gap-1.5">
               <UserRound size={14} />
-
               {task.assignee}
             </span>
 
-            <span
-              className="
-                flex
-                items-center
-                gap-1.5
-              "
-            >
+            <span className="flex items-center gap-1.5">
               <Clock3 size={14} />
-
               Due {task.dueDate}
             </span>
           </div>
@@ -167,6 +212,7 @@ const SixtyThreeComponent = ({
 
         <div
           className="
+            relative
             flex
             items-center
             gap-2
@@ -184,7 +230,10 @@ const SixtyThreeComponent = ({
               font-medium
               capitalize
               whitespace-nowrap
-              ${priorityColors[task.priority]}
+              ${
+                priorityColors[task.priority] ||
+                "bg-gray-100 text-gray-600"
+              }
             `}
           >
             {task.priority}
@@ -200,24 +249,45 @@ const SixtyThreeComponent = ({
               text-sm
               font-medium
               whitespace-nowrap
-              ${statusColors[task.status]}
+              ${
+                statusColors[task.status] ||
+                "bg-gray-100 text-gray-600"
+              }
             `}
           >
             {task.status}
           </span>
 
-          {/* MORE MENU */}
+          {/* =================================================
+              MORE MENU BUTTON
+          ================================================= */}
 
           <button
             type="button"
+            onClick={() =>
+              setShowSideOptions((previous) => !previous)
+            }
             className="
               p-1
               text-gray-400
               hover:text-gray-600
+              transition
             "
+            aria-label="Task options"
           >
             <MoreVertical size={20} />
           </button>
+
+          {/* =================================================
+              SIDE OPTIONS DROPDOWN
+          ================================================= */}
+
+          {showSideOptions && (
+            <ProjectTaskSideOption
+              task={task}
+              onClose={() => setShowSideOptions(false)}
+            />
+          )}
         </div>
       </div>
 
@@ -247,7 +317,7 @@ const SixtyThreeComponent = ({
 
           <button
             type="button"
-            onClick={() => onView?.(task.id)}
+            onClick={handleView}
             className="
               flex
               items-center
@@ -265,7 +335,6 @@ const SixtyThreeComponent = ({
             "
           >
             <Eye size={16} />
-
             View
           </button>
 
@@ -273,7 +342,7 @@ const SixtyThreeComponent = ({
 
           <button
             type="button"
-            onClick={() => onEdit?.(task.id)}
+            onClick={handleEdit}
             className="
               flex
               items-center
@@ -291,7 +360,6 @@ const SixtyThreeComponent = ({
             "
           >
             <Edit size={16} />
-
             Edit
           </button>
 
@@ -299,7 +367,7 @@ const SixtyThreeComponent = ({
 
           <button
             type="button"
-            onClick={() => onDelete?.(task.id)}
+            onClick={handleDelete}
             className="
               flex
               items-center
@@ -317,15 +385,17 @@ const SixtyThreeComponent = ({
             "
           >
             <Trash2 size={16} />
-
             Delete
           </button>
         </div>
 
-        {/* DETAILS */}
+        {/* =================================================
+            DETAILS
+        ================================================= */}
 
         <button
           type="button"
+          onClick={handleDetails}
           className="
             flex
             items-center

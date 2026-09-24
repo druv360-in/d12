@@ -14,37 +14,98 @@ export default function DashboardPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <SidebarMenu24
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-      />
+    <div className="min-h-screen bg-[#f8f9fc]">
 
-      <div className="lg:pl-[360px] xl:pl-[400px]">
-        <div className="sticky top-0 z-50 lg:hidden">
-          <Header01 onMenuClick={() => setIsSidebarOpen(true)} />
-        </div>
+      {/* ================= FIXED SIDEBAR ================= */}
 
-        <main className="pb-24 lg:pb-0 bg-[#F8F8F8]">
-          <div className="mx-auto w-full max-w-screen-2xl px-4 py-5 sm:px-6 lg:px-8 lg:py-6">
-            <div className="mb-5">
-              <FreelancerSwitch03 />
-            </div>
-
-            <DashboardHeader15 />
-
-            <div className="mt-5 space-y-5">
-              <DashboardStats16 />
-              <WhySkillBuster17 />
-              <FeaturedFreelancers18 />
-              <QuickActions20 />
-              <div className="h-10" />
-            </div>
-          </div>
-        </main>
+      <div
+        className="
+          fixed
+          left-0
+          top-0
+          w-[280px]
+          h-screen
+          z-50
+          hidden
+          lg:block
+        "
+      >
+        <SidebarMenu24
+          isOpen={true}
+          onClose={() => setIsSidebarOpen(false)}
+        />
       </div>
 
+
+      {/* ================= MOBILE HEADER ================= */}
+
+      <div className="sticky top-0 z-50 lg:hidden">
+        <Header01
+          onMenuClick={() => setIsSidebarOpen(true)}
+        />
+      </div>
+
+
+      {/* ================= MOBILE SIDEBAR ================= */}
+
+      <div className="lg:hidden">
+        <SidebarMenu24
+          isOpen={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+        />
+      </div>
+
+
+      {/* ================= MAIN CONTENT ================= */}
+
+      <main
+        className="
+          lg:ml-[340px]
+          min-h-screen
+          w-auto
+          bg-[#f8f9fc]
+          pb-24
+          lg:pb-0
+        "
+      >
+
+        {/* ================= FREELANCER SWITCH ================= */}
+
+        <div className="mx-8 mt-8">
+          <FreelancerSwitch03 />
+        </div>
+
+
+        {/* ================= CLIENT DASHBOARD ================= */}
+
+        <div className="mx-8 mt-6">
+          <DashboardHeader15 />
+        </div>
+
+
+        {/* ================= DASHBOARD CONTENT ================= */}
+
+        <div className="mt-5 space-y-5 px-9">
+
+          <DashboardStats16 />
+
+          <WhySkillBuster17 />
+
+          <FeaturedFreelancers18 />
+
+          <QuickActions20 />
+
+          <div className="h-10" />
+
+        </div>
+
+      </main>
+
+
+      {/* ================= BOTTOM MENU ================= */}
+
       <BottomMenu05 />
+
     </div>
   );
 }

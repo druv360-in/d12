@@ -20,7 +20,7 @@ export default function ProjectsPage() {
         onClose={() => setIsSidebarOpen(false)}
       />
 
-      <div className="lg:pl-[360px] xl:pl-[400px]">
+      <div className="lg:pl-[341px] xl:pl-[341px]">
         <div className="sticky top-0 z-50 lg:hidden">
           <Header01 onMenuClick={() => setIsSidebarOpen(true)} />
         </div>
@@ -30,14 +30,16 @@ export default function ProjectsPage() {
             <FreelancerSwitch03 />
             <DashboardHeader15 />
 
-            <SeventySevenComponent
-              onCreate={() => navigate("/project-setup-page")}
-              stats={{
-                total: 3,
-                active: 1,
-                done: 1,
-              }}
-            />
+            <div className="mt-[42px]">
+  <SeventySevenComponent
+    onCreate={() => navigate("/project-setup-page")}
+    stats={{
+      total: 3,
+      active: 1,
+      done: 1,
+    }}
+  />
+</div>
 
             <SeventyEightComponent />
             <div className="h-10" />

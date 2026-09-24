@@ -11,39 +11,31 @@ import Header01 from "../components/Header01";
 import SidebarMenu24 from "../components/SidebarMenu24";
 import BottomMenu05 from "../components/BottomMenu05";
 
-
 function ProjectSetupPage() {
-
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const sideCardClass = `
+    rounded-[28px]
+    overflow-hidden
+    transition-all
+    duration-300
+    ease-out
+    hover:-translate-y-1
+    hover:shadow-[0_16px_35px_rgba(109,40,217,0.12)]
+  `;
 
   return (
-
     <div className="min-h-screen bg-gray-100">
 
-
-      {/* LAPTOP SIDEBAR */}
-
+      {/* SIDEBAR */}
       <SidebarMenu24
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
       />
 
+      <div className="lg:pl-[341px] xl:pl-[341px]">
 
-
-      {/* MAIN AREA */}
-
-      <div
-        className="
-          lg:pl-[360px]
-          xl:pl-[400px]
-        "
-      >
-
-
-
-        {/* MOBILE + TABLET HEADER */}
-
+        {/* MOBILE HEADER */}
         <div
           className="
             sticky
@@ -52,166 +44,105 @@ function ProjectSetupPage() {
             lg:hidden
           "
         >
-
           <Header01
             onMenuClick={() => setIsSidebarOpen(true)}
           />
-
         </div>
 
-
-
-
-
-        {/* DESKTOP PROJECT HEADER */}
-
+        {/* DESKTOP HEADER */}
         <div
           className="
             sticky
             top-0
             z-40
             hidden
-            lg:block
             bg-white
+            transition-all
+            duration-300
+            ease-out
+            hover:drop-shadow-[0_12px_20px_rgba(0,0,0,0.18)]
+            lg:block
           "
         >
-
           <CreateProjectHeader67a />
-
         </div>
 
-
-
-
-
-        {/* CONTENT */}
-
-        <main
-          className="
-            pb-24
-            lg:pb-0
-          "
-        >
+        <main className="pb-24 lg:pb-0">
 
           <div
             className="
               mx-auto
               max-w-screen-2xl
               px-4
+              py-6
               sm:px-6
               lg:px-10
-              py-6
             "
           >
-
 
             <div
               className="
                 grid
                 grid-cols-1
-                lg:grid-cols-3
-                gap-8
                 items-start
+                gap-8
+                lg:grid-cols-3
               "
             >
 
+              {/* =================================================
+                  MAIN FORM
+              ================================================== */}
 
-
-              {/* LEFT FORM */}
-
-              <div
-                className="
-                  lg:col-span-2
-                "
-              >
-
+              <div className="lg:col-span-2">
                 <CreateProjectForm68a />
-
               </div>
 
 
+              {/* =================================================
+                  RIGHT SIDE CARDS
+              ================================================== */}
 
+              <div className="flex flex-col gap-6">
 
+                {/* PROJECT INSIGHTS */}
+                <div className={sideCardClass}>
+                  <div className="hidden lg:block sticky top-24">
+                    <ProjectInsights69 />
+                  </div>
 
-              {/* RIGHT COLUMN */}
-
-              <div
-                className="
-                  flex
-                  flex-col
-                  gap-6
-                "
-              >
-
-
-
-                {/* LAPTOP STICKY */}
-
-                <div
-                  className="
-                    hidden
-                    lg:block
-                    sticky
-                    top-24
-                  "
-                >
-
-                  <ProjectInsights69 />
-
+                  <div className="lg:hidden">
+                    <ProjectInsights69 />
+                  </div>
                 </div>
 
 
-
-
-
-                {/* MOBILE + TABLET */}
-
-                <div
-                  className="
-                    lg:hidden
-                  "
-                >
-
-                  <ProjectInsights69 />
-
+                {/* VISIBILITY SETTINGS */}
+                <div className={sideCardClass}>
+                  <VisibilitySettings72 />
                 </div>
 
 
-
-
-                <VisibilitySettings72 />
-
-                <AISuggestions70 />
-
+                {/* AI SUGGESTIONS */}
+                <div className={sideCardClass}>
+                  <AISuggestions70 />
+                </div>
 
               </div>
-
 
             </div>
 
-
           </div>
-
 
         </main>
 
-
       </div>
 
-
-
-
-
-      {/* MOBILE + TABLET BOTTOM MENU */}
-
+      {/* MOBILE BOTTOM MENU */}
       <BottomMenu05 />
 
-
     </div>
-
   );
-
 }
-
 
 export default ProjectSetupPage;

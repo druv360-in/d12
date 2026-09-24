@@ -3,7 +3,7 @@ import { useState } from "react";
 import BottomMenu05 from "../components/BottomMenu05";
 import DashboardHeader15 from "../components/DashboardHeader15";
 import EightyComponent from "../components/80component";
-import EightyOneComponent from "../components/81component";
+import EightyOneComponent from "../components/79component";
 import FreelancerSwitch03 from "../components/FreelancerSwitch03";
 import Header01 from "../components/Header01";
 import SidebarMenu24 from "../components/SidebarMenu24";
@@ -18,7 +18,7 @@ function TemplatesPage() {
         onClose={() => setIsSidebarOpen(false)}
       />
 
-      <div className="lg:pl-[360px] xl:pl-[400px]">
+      <div className="lg:pl-[339px] xl:pl-[339px]">
         <div className="sticky top-0 z-50 lg:hidden">
           <Header01 onMenuClick={() => setIsSidebarOpen(true)} />
         </div>

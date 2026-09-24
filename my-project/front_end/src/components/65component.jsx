@@ -20,8 +20,8 @@ const SixtyFiveComponent = ({
     image: (
       <Image
         className="
-          w-5
-          h-5
+          w-6
+          h-6
           text-pink-600
         "
         strokeWidth={2}
@@ -31,8 +31,8 @@ const SixtyFiveComponent = ({
     document: (
       <FileText
         className="
-          w-5
-          h-5
+          w-6
+          h-6
           text-red-600
         "
         strokeWidth={2}
@@ -42,8 +42,8 @@ const SixtyFiveComponent = ({
     video: (
       <Video
         className="
-          w-5
-          h-5
+          w-6
+          h-6
           text-violet-600
         "
         strokeWidth={2}
@@ -67,27 +67,32 @@ const SixtyFiveComponent = ({
     <div
       className="
         w-full
-        bg-white
-        rounded-2xl
-        px-4
-        py-4
-        sm:px-5
-        sm:py-4
+        rounded-[22px]
         border
         border-gray-200
+        bg-white
+        px-5
+        py-5
+        shadow-[0_3px_12px_rgba(15,23,42,0.06)]
+        transition-all
+        duration-200
+        hover:-translate-y-0.5
+        hover:shadow-[0_7px_20px_rgba(15,23,42,0.10)]
+        sm:px-6
+        sm:py-5
       "
     >
 
       {/* =====================================================
           FILE INFORMATION
-      ===================================================== */}
+      ====================================================== */}
 
       <div
         className="
           flex
           items-start
-          gap-3
-          sm:gap-4
+          gap-4
+          sm:gap-5
         "
       >
 
@@ -97,15 +102,15 @@ const SixtyFiveComponent = ({
 
         <div
           className={`
-            w-10
-            h-10
-            sm:w-11
-            sm:h-11
-            rounded-xl
             flex
+            h-12
+            w-12
+            shrink-0
             items-center
             justify-center
-            shrink-0
+            rounded-[15px]
+            sm:h-13
+            sm:w-13
             ${fileTypeBg[work.fileType]}
           `}
         >
@@ -119,8 +124,8 @@ const SixtyFiveComponent = ({
 
         <div
           className="
-            flex-1
             min-w-0
+            flex-1
           "
         >
 
@@ -128,12 +133,12 @@ const SixtyFiveComponent = ({
 
           <h3
             className="
-              text-base
-              sm:text-lg
-              font-semibold
-              text-gray-900
-              leading-6
               truncate
+              text-[18px]
+              font-semibold
+              leading-7
+              text-gray-900
+              sm:text-[19px]
             "
           >
             {work.title}
@@ -144,11 +149,11 @@ const SixtyFiveComponent = ({
 
           <div
             className="
+              mt-1.5
               flex
+              min-w-0
               items-center
               gap-2
-              mt-1
-              min-w-0
             "
           >
 
@@ -156,22 +161,21 @@ const SixtyFiveComponent = ({
               src={work.avatar}
               alt={work.name}
               className="
-                w-5
-                h-5
-                sm:w-6
-                sm:h-6
+                h-7
+                w-7
+                shrink-0
                 rounded-full
                 object-cover
-                shrink-0
               "
             />
 
             <span
               className="
-                text-xs
-                sm:text-sm
-                text-gray-600
                 whitespace-nowrap
+                text-[14px]
+                font-medium
+                text-gray-600
+                sm:text-[15px]
               "
             >
               {work.name}
@@ -179,8 +183,9 @@ const SixtyFiveComponent = ({
 
             <span
               className="
+                text-[14px]
                 text-gray-400
-                text-xs
+                sm:text-[15px]
               "
             >
               •
@@ -188,10 +193,10 @@ const SixtyFiveComponent = ({
 
             <span
               className="
-                text-xs
-                sm:text-sm
-                text-gray-500
                 whitespace-nowrap
+                text-[14px]
+                text-gray-500
+                sm:text-[15px]
               "
             >
               {work.timeAgo}
@@ -206,16 +211,16 @@ const SixtyFiveComponent = ({
 
       {/* =====================================================
           ACTION BUTTONS
-      ===================================================== */}
+      ====================================================== */}
 
       <div
         className="
+          mt-4
           flex
           items-center
-          gap-2
-          mt-3
-          ml-[52px]
-          sm:ml-[59px]
+          gap-3
+          ml-[64px]
+          sm:ml-[68px]
         "
       >
 
@@ -224,17 +229,20 @@ const SixtyFiveComponent = ({
         =================================================== */}
 
         <button
+          type="button"
           onClick={() => onViewFile?.(work.id)}
           className="
             flex-1
-            h-9
+            h-11
+            rounded-[14px]
             bg-violet-50
-            hover:bg-violet-100
+            text-[15px]
+            font-semibold
             text-violet-700
-            rounded-xl
-            text-sm
-            font-medium
-            transition
+            transition-all
+            duration-200
+            hover:bg-violet-100
+            hover:-translate-y-0.5
           "
         >
           View File
@@ -248,27 +256,25 @@ const SixtyFiveComponent = ({
         {work.verified ? (
 
           <button
+            type="button"
             className="
               flex
+              h-11
               items-center
               justify-center
-              gap-1.5
-              h-9
-              px-4
+              gap-2
+              rounded-[14px]
               bg-emerald-50
+              px-5
+              text-[15px]
+              font-semibold
               text-emerald-600
-              rounded-xl
-              text-sm
-              font-medium
               whitespace-nowrap
             "
           >
 
             <CheckCircle
-              className="
-                w-4
-                h-4
-              "
+              className="h-5 w-5"
               strokeWidth={2}
             />
 
@@ -279,18 +285,21 @@ const SixtyFiveComponent = ({
         ) : (
 
           <button
+            type="button"
             onClick={() => onVerify?.(work.id)}
             className="
-              h-9
-              px-4
+              h-11
+              rounded-[14px]
               bg-violet-50
-              hover:bg-violet-100
+              px-5
+              text-[15px]
+              font-semibold
               text-violet-700
-              rounded-xl
-              text-sm
-              font-medium
               whitespace-nowrap
-              transition
+              transition-all
+              duration-200
+              hover:bg-violet-100
+              hover:-translate-y-0.5
             "
           >
             Verify Work

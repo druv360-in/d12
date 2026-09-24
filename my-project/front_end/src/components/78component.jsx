@@ -1,5 +1,12 @@
 import React from "react";
-import { Users, FileText, UserPlus, Edit, Trash2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import {
+  Users,
+  FileText,
+  UserPlus,
+  Edit,
+  Trash2,
+} from "lucide-react";
 
 const projects = [
   {
@@ -10,7 +17,7 @@ const projects = [
     deadline: "15/07/2026",
     progress: 45,
     status: "In-progress",
-    assigned: "Sarah Johnson"
+    assigned: "Sarah Johnson",
   },
   {
     id: 2,
@@ -20,7 +27,7 @@ const projects = [
     deadline: "30/06/2026",
     progress: 0,
     status: "pending",
-    assigned: null
+    assigned: null,
   },
   {
     id: 3,
@@ -30,84 +37,374 @@ const projects = [
     deadline: "20/05/2026",
     progress: 100,
     status: "completed",
-    assigned: "Emily Davis"
-  }
+    assigned: "Emily Davis",
+  },
 ];
 
 const statusConfig = {
   "In-progress": "bg-violet-100 text-violet-700",
   pending: "bg-amber-100 text-amber-700",
-  completed: "bg-emerald-100 text-emerald-700"
+  completed: "bg-emerald-100 text-emerald-700",
 };
 
 const SeventyEightComponent = () => {
-  return (
-    <div className="px-4 lg:px-6 mt-6">
-      <h2 className="text-xl font-bold text-gray-900 mb-4">My Projects</h2>
+  const navigate = useNavigate();
 
-      <div className="space-y-4">
+  return (
+    <div className="mt-7 px-4 lg:px-6">
+
+      {/* =====================================================
+          PAGE TITLE
+      ====================================================== */}
+
+      <h1 className="mb-7 text-[23px] font-bold text-gray-900">
+        My Projects
+      </h1>
+
+
+      {/* =====================================================
+          PROJECT CARDS
+      ====================================================== */}
+
+      <div className="space-y-8">
+
         {projects.map((project) => (
-          <div key={project.id} className="bg-white rounded-2xl p-5 shadow-sm border-gray-100">
-            {/* Title + Status */}
-            <div className="flex items-start justify-between gap-3 mb-2">
-              <h3 className="text-lg font-bold text-gray-900">{project.title}</h3>
-              <span className={`text-xs font-semibold px-3 py-1 rounded-full ${statusConfig[project.status]}`}>
+          <div
+            key={project.id}
+            className="
+              rounded-2xl
+              border
+              border-gray-100
+              bg-white
+              p-6
+              shadow-sm
+              transition-all
+              duration-300
+              hover:-translate-y-1
+              hover:shadow-lg
+            "
+          >
+
+            {/* =================================================
+                TITLE + STATUS
+            ================================================== */}
+
+            <div className="mb-5 flex items-start justify-between gap-5">
+
+              <h2 className="text-[20px] font-bold leading-snug text-gray-900">
+                {project.title}
+              </h2>
+
+              <span
+                className={`
+                  whitespace-nowrap
+                  rounded-full
+                  px-3.5
+                  py-1.5
+                  text-[13px]
+                  font-semibold
+                  ${statusConfig[project.status]}
+                `}
+              >
                 {project.status}
               </span>
+
             </div>
 
-            <p className="text-sm text-gray-600 mb-4">{project.desc}</p>
 
-            {/* Budget / Deadline / Progress */}
-            <div className="grid grid-cols-3 gap-3 mb-3">
-              <div className="bg-emerald-50 rounded-xl p-3 text-center">
-                <p className="text-xs text-gray-500">Budget</p>
-                <p className="font-bold text-gray-900">{project.budget}</p>
-              </div>
-              <div className="bg-violet-50 rounded-xl p-3 text-center">
-                <p className="text-xs text-gray-500">Deadline</p>
-                <p className="font-bold text-gray-900">{project.deadline}</p>
-              </div>
-              <div className="bg-violet-50 rounded-xl p-3 text-center">
-                <p className="text-xs text-gray-500">Progress</p>
-                <p className="font-bold text-gray-900">{project.progress}%</p>
-              </div>
-            </div>
+            {/* =================================================
+                DESCRIPTION
+            ================================================== */}
 
-            {/* Progress Bar */}
-            <div className="w-full bg-violet-100 rounded-full h-2 mb-3">
+            <p className="mb-5 text-[15px] leading-relaxed text-gray-600">
+              {project.desc}
+            </p>
+
+
+            {/* =================================================
+                BUDGET / DEADLINE / PROGRESS
+            ================================================== */}
+
+            <div className="mb-4 grid grid-cols-3 gap-3 md:gap-4">
+
+              {/* Budget */}
               <div
-                className="bg-amber-500 h-2 rounded-full"
-                style={{ width: `${project.progress}%` }}
+                className="
+                  rounded-xl
+                  bg-emerald-50
+                  p-4
+                  text-center
+                  transition-all
+                  duration-200
+                  hover:-translate-y-0.5
+                  hover:shadow-sm
+                "
+              >
+                <p className="text-[13px] text-gray-500">
+                  Budget
+                </p>
+
+                <p className="mt-1 text-[18px] font-bold text-gray-900">
+                  {project.budget}
+                </p>
+              </div>
+
+
+              {/* Deadline */}
+              <div
+                className="
+                  rounded-xl
+                  bg-violet-50
+                  p-4
+                  text-center
+                  transition-all
+                  duration-200
+                  hover:-translate-y-0.5
+                  hover:shadow-sm
+                "
+              >
+                <p className="text-[13px] text-gray-500">
+                  Deadline
+                </p>
+
+                <p className="mt-1 text-[18px] font-bold text-gray-900">
+                  {project.deadline}
+                </p>
+              </div>
+
+
+              {/* Progress */}
+              <div
+                className="
+                  rounded-xl
+                  bg-violet-50
+                  p-4
+                  text-center
+                  transition-all
+                  duration-200
+                  hover:-translate-y-0.5
+                  hover:shadow-sm
+                "
+              >
+                <p className="text-[13px] text-gray-500">
+                  Progress
+                </p>
+
+                <p className="mt-1 text-[18px] font-bold text-gray-900">
+                  {project.progress}%
+                </p>
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+                PROGRESS BAR
+            ================================================== */}
+
+            <div className="mb-4 h-2.5 w-full overflow-hidden rounded-full bg-violet-100">
+              <div
+                className="
+                  h-2.5
+                  rounded-full
+                  bg-amber-500
+                  transition-all
+                  duration-500
+                "
+                style={{
+                  width: `${project.progress}%`,
+                }}
               />
             </div>
 
-            {/* Assigned */}
+
+            {/* =================================================
+                ASSIGNED FREELANCER
+            ================================================== */}
+
             {project.assigned && (
-              <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                <Users className="w-4 h-4" />
-                Assigned to {project.assigned}
+              <div
+                className="
+                  mb-5
+                  flex
+                  items-center
+                  gap-2
+                  text-[15px]
+                  text-gray-500
+                "
+              >
+                <Users className="h-5 w-5" />
+
+                <span>
+                  Assigned to{" "}
+                  <span className="font-medium text-gray-700">
+                    {project.assigned}
+                  </span>
+                </span>
               </div>
             )}
 
-            {/* Action Buttons */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-              <button className="bg-violet-50 hover:bg-violet-100 text-violet-700 font-semibold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 text-sm">
-                <FileText className="w-4 h-4" /> View
+
+            {/* =================================================
+                ACTION BUTTONS
+            ================================================== */}
+
+            <div className="grid grid-cols-2 gap-2.5 md:grid-cols-4">
+
+              {/* =================================================
+                  VIEW
+              ================================================== */}
+
+              <button
+                type="button"
+                onClick={() =>
+                  navigate("/view-projectdetails", {
+                    state: {
+                      project,
+                    },
+                  })
+                }
+                className="
+                  flex
+                  items-center
+                  justify-center
+                  gap-1.5
+                  rounded-xl
+                  bg-violet-50
+                  px-3
+                  py-3
+                  text-[15px]
+                  font-semibold
+                  text-violet-700
+                  transition-all
+                  duration-200
+                  hover:-translate-y-0.5
+                  hover:bg-violet-100
+                  hover:shadow-sm
+                "
+              >
+                <FileText className="h-[18px] w-[18px]" />
+                View
               </button>
-              <button className="bg-violet-50 hover:bg-violet-100 text-violet-700 font-semibold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 text-sm">
-                <UserPlus className="w-4 h-4" /> Proposals
+
+
+              {/* =================================================
+                  PROPOSALS
+              ================================================== */}
+
+              <button
+                type="button"
+                onClick={() =>
+                  navigate("/project-proposal", {
+                    state: {
+                      project,
+                    },
+                  })
+                }
+                className="
+                  flex
+                  items-center
+                  justify-center
+                  gap-1.5
+                  rounded-xl
+                  bg-violet-50
+                  px-3
+                  py-3
+                  text-[15px]
+                  font-semibold
+                  text-violet-700
+                  transition-all
+                  duration-200
+                  hover:-translate-y-0.5
+                  hover:bg-violet-100
+                  hover:shadow-sm
+                "
+              >
+                <UserPlus className="h-[18px] w-[18px]" />
+                Proposals
               </button>
-              <button className="bg-violet-50 hover:bg-violet-100 text-violet-700 font-semibold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 text-sm">
-                <Edit className="w-4 h-4" /> Edit
+
+
+              {/* =================================================
+                  EDIT
+              ================================================== */}
+
+              <button
+                type="button"
+                onClick={() =>
+                  navigate("/project-edit", {
+                    state: {
+                      project,
+                    },
+                  })
+                }
+                className="
+                  flex
+                  items-center
+                  justify-center
+                  gap-1.5
+                  rounded-xl
+                  bg-violet-50
+                  px-3
+                  py-3
+                  text-[15px]
+                  font-semibold
+                  text-violet-700
+                  transition-all
+                  duration-200
+                  hover:-translate-y-0.5
+                  hover:bg-violet-100
+                  hover:shadow-sm
+                "
+              >
+                <Edit className="h-[18px] w-[18px]" />
+                Edit
               </button>
-              <button className="bg-rose-50 hover:bg-rose-100 text-red-600 font-semibold py-2.5 px-3 rounded-xl flex items-center justify-center gap-1.5 text-sm">
-                <Trash2 className="w-4 h-4" /> Delete
-              </button>
+
+
+              {/* =================================================
+                  DELETE
+              ================================================== */}
+
+              <button
+  type="button"
+  onClick={() =>
+    navigate("/project-delete", {
+      state: {
+        project,
+      },
+    })
+  }
+  className="
+    flex
+    items-center
+    justify-center
+    gap-1.5
+    rounded-xl
+    bg-rose-50
+    px-3
+    py-3
+    text-[15px]
+    font-semibold
+    text-red-600
+    transition-all
+    duration-200
+    hover:-translate-y-0.5
+    hover:bg-rose-100
+    hover:shadow-sm
+  "
+>
+  <Trash2 className="h-[18px] w-[18px]" />
+  Delete
+</button>
+
             </div>
+
           </div>
         ))}
+
       </div>
+
     </div>
   );
 };

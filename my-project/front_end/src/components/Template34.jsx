@@ -1,82 +1,413 @@
-// Template34.jsx
-import React from "react";
-import { Star, Download, Eye, Zap, ShoppingCart, TrendingUp } from "lucide-react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Star,
+  Download,
+  Eye,
+  Zap,
+  ShoppingCart,
+  TrendingUp,
+  Check,
+} from "lucide-react";
 
-export default function Template34({ 
+export default function Template34({
   price = "49",
   originalPrice = "99",
   rating = 4.9,
   sales = "342",
   views = "2.1k",
-  tags = ["React", "Tailwind", "Template", "Business"]
+  tags = ["React", "Tailwind", "Template", "Business"],
 }) {
+  const navigate = useNavigate();
+
+  const [addedToCart, setAddedToCart] = useState(false);
+
+  const handleAddToCart = () => {
+    setAddedToCart(true);
+  };
+
+  const handleBuyNow = () => {
+    navigate("/servicenotfound");
+  };
+
   return (
-    <div className="px-4 py-4">
-      <div className="bg-white rounded-2xl shadow-sm p-5">
-        
-        {/* Price */}
-        <div className="flex items-baseline gap-2 mb-2">
-          <span className="text-4xl font-bold text-violet-700">₹{price}</span>
-          <span className="text-xl text-gray-400 line-through">₹{originalPrice}</span>
+    <div
+      className="
+        px-4
+        pt-4
+        lg:sticky
+        lg:top-[104px]
+        lg:self-start
+      "
+    >
+      <div
+        className="
+          rounded-[26px]
+          border
+          border-gray-100
+          bg-white
+          p-6
+          shadow-[0_4px_16px_rgba(15,23,42,0.06)]
+          transition-all
+          duration-300
+          hover:-translate-y-1
+          hover:shadow-[0_10px_28px_rgba(15,23,42,0.12)]
+        "
+      >
+
+        {/* PRICE */}
+
+        <div className="mb-3 flex items-baseline gap-2">
+
+          <span
+            className="
+              text-[34px]
+              font-bold
+              leading-none
+              text-violet-700
+            "
+          >
+            ₹{price}
+          </span>
+
+          <span
+            className="
+              text-[19px]
+              text-gray-400
+              line-through
+            "
+          >
+            ₹{originalPrice}
+          </span>
+
         </div>
 
-        {/* Offer Badge */}
-        <div className="flex items-center gap-2 text-emerald-600 mb-5">
-          <TrendingUp className="w-4 h-4" />
-          <span className="text-sm font-medium">Save 50% - Limited Time Offer!</span>
+
+        {/* OFFER */}
+
+        <div className="mb-6 flex items-center gap-2">
+
+          <TrendingUp
+            className="
+              h-5
+              w-5
+              shrink-0
+              text-emerald-600
+            "
+          />
+
+          <span
+            className="
+              text-[15px]
+              font-medium
+              text-emerald-600
+            "
+          >
+            Save 50% - Limited Time Offer!
+          </span>
+
         </div>
 
-        {/* Stats Cards */}
-        <div className="grid grid-cols-3 gap-3 mb-5">
-          <div className="bg-violet-50 rounded-2xl p-3 text-center">
-            <Star className="w-5 h-5 text-yellow-500 fill-yellow-500 mx-auto mb-1" />
-            <p className="text-lg font-bold text-gray-900">{rating}</p>
-            <p className="text-xs text-gray-500">Rating</p>
+
+        {/* STATS */}
+
+        <div className="mb-6 grid grid-cols-3 gap-3">
+
+          {/* Rating */}
+
+          <div
+            className="
+              rounded-[18px]
+              border
+              border-violet-100
+              bg-violet-50
+              p-4
+              text-center
+              transition-all
+              duration-200
+              hover:-translate-y-0.5
+              hover:shadow-sm
+            "
+          >
+            <Star
+              className="
+                mx-auto
+                mb-1.5
+                h-6
+                w-6
+                fill-yellow-500
+                text-yellow-500
+              "
+            />
+
+            <p className="text-[19px] font-bold text-gray-900">
+              {rating}
+            </p>
+
+            <p className="text-[14px] text-gray-500">
+              Rating
+            </p>
           </div>
-          <div className="bg-violet-50 rounded-2xl p-3 text-center">
-            <Download className="w-5 h-5 text-violet-600 mx-auto mb-1" />
-            <p className="text-lg font-bold text-gray-900">{sales}</p>
-            <p className="text-xs text-gray-500">Sales</p>
+
+
+          {/* Sales */}
+
+          <div
+            className="
+              rounded-[18px]
+              border
+              border-violet-100
+              bg-violet-50
+              p-4
+              text-center
+              transition-all
+              duration-200
+              hover:-translate-y-0.5
+              hover:shadow-sm
+            "
+          >
+            <Download
+              className="
+                mx-auto
+                mb-1.5
+                h-6
+                w-6
+                text-violet-600
+              "
+            />
+
+            <p className="text-[19px] font-bold text-gray-900">
+              {sales}
+            </p>
+
+            <p className="text-[14px] text-gray-500">
+              Sales
+            </p>
           </div>
-          <div className="bg-emerald-50 rounded-2xl p-3 text-center">
-            <Eye className="w-5 h-5 text-emerald-600 mx-auto mb-1" />
-            <p className="text-lg font-bold text-gray-900">{views}</p>
-            <p className="text-xs text-gray-500">Views</p>
+
+
+          {/* Views */}
+
+          <div
+            className="
+              rounded-[18px]
+              border
+              border-emerald-100
+              bg-emerald-50
+              p-4
+              text-center
+              transition-all
+              duration-200
+              hover:-translate-y-0.5
+              hover:shadow-sm
+            "
+          >
+            <Eye
+              className="
+                mx-auto
+                mb-1.5
+                h-6
+                w-6
+                text-emerald-600
+              "
+            />
+
+            <p className="text-[19px] font-bold text-gray-900">
+              {views}
+            </p>
+
+            <p className="text-[14px] text-gray-500">
+              Views
+            </p>
           </div>
+
         </div>
 
-        {/* Buttons */}
-        <button className="w-full bg-violet-700 hover:bg-violet-800 text-white font-semibold py-3.5 rounded-2xl flex items-center justify-center gap-2 mb-3 shadow-lg shadow-violet-200">
-          <Zap className="w-5 h-5" />
+
+        {/* =====================================================
+            BUY NOW
+        ====================================================== */}
+
+        <button
+          type="button"
+          onClick={handleBuyNow}
+          className="
+            mb-3
+            flex
+            w-full
+            items-center
+            justify-center
+            gap-2
+            rounded-[18px]
+            bg-violet-700
+            py-4
+            text-[16px]
+            font-semibold
+            text-white
+            shadow-lg
+            shadow-violet-200
+            transition-all
+            duration-200
+            hover:-translate-y-0.5
+            hover:bg-violet-800
+            hover:shadow-xl
+          "
+        >
+          <Zap className="h-5 w-5" />
           Buy Now
         </button>
-        
-        <button className="w-full border-2 border-violet-700 text-violet-700 hover:bg-violet-50 font-semibold py-3.5 rounded-2xl flex items-center justify-center gap-2 mb-6">
-          <ShoppingCart className="w-5 h-5" />
-          Add to Cart
+
+
+        {/* =====================================================
+            ADD TO CART
+        ====================================================== */}
+
+        <button
+          type="button"
+          onClick={handleAddToCart}
+          className={`
+            mb-7
+            flex
+            w-full
+            items-center
+            justify-center
+            gap-2
+            rounded-[18px]
+            py-4
+            text-[16px]
+            font-semibold
+            transition-all
+            duration-200
+            hover:-translate-y-0.5
+
+            ${
+              addedToCart
+                ? `
+                  border-2
+                  border-emerald-500
+                  bg-emerald-500
+                  text-white
+                  shadow-lg
+                  shadow-emerald-100
+                  hover:bg-emerald-600
+                `
+                : `
+                  border-2
+                  border-violet-700
+                  bg-white
+                  text-violet-700
+                  hover:bg-violet-50
+                `
+            }
+          `}
+        >
+          {addedToCart ? (
+            <>
+              <Check className="h-5 w-5" />
+              Added to Cart
+            </>
+          ) : (
+            <>
+              <ShoppingCart className="h-5 w-5" />
+              Add to Cart
+            </>
+          )}
         </button>
 
-        {/* Tags */}
-        <div className="mb-6">
-          <h3 className="text-lg font-bold text-gray-900 mb-3">Tags</h3>
+
+        {/* TAGS */}
+
+        <div className="mb-7">
+
+          <h3
+            className="
+              mb-3
+              text-[20px]
+              font-bold
+              text-gray-900
+            "
+          >
+            Tags
+          </h3>
+
           <div className="flex flex-wrap gap-2">
+
             {tags.map((tag) => (
-              <span key={tag} className="bg-gray-100 text-gray-600 text-sm font-medium px-3 py-1.5 rounded-full">
+              <span
+                key={tag}
+                className="
+                  rounded-full
+                  bg-gray-100
+                  px-3
+                  py-1.5
+                  text-[14px]
+                  font-medium
+                  text-gray-600
+                  transition
+                  hover:bg-violet-50
+                  hover:text-violet-700
+                "
+              >
                 {tag}
               </span>
             ))}
+
           </div>
+
         </div>
 
-        {/* License */}
-        <div className="bg-gray-50 rounded-2xl p-4">
-          <h3 className="text-lg font-bold text-gray-900 mb-2">License Information</h3>
-          <p className="text-gray-500 text-sm leading-relaxed mb-3">
-            This template comes with a commercial license. You can use it for personal and commercial projects.
+
+        {/* LICENSE */}
+
+        <div
+          className="
+            rounded-[20px]
+            border
+            border-gray-100
+            bg-gray-50
+            p-5
+            transition-all
+            duration-200
+            hover:bg-gray-100
+          "
+        >
+
+          <h3
+            className="
+              mb-2.5
+              text-[20px]
+              font-bold
+              text-gray-900
+            "
+          >
+            License Information
+          </h3>
+
+          <p
+            className="
+              mb-3
+              text-[15px]
+              leading-relaxed
+              text-gray-500
+            "
+          >
+            This template comes with a commercial license. You can use it
+            for personal and commercial projects.
           </p>
-          <button className="text-violet-700 font-semibold text-sm">
+
+          <button
+            type="button"
+            className="
+              text-[15px]
+              font-semibold
+              text-violet-700
+              transition
+              hover:text-violet-900
+            "
+          >
             Read full license →
           </button>
+
         </div>
 
       </div>
