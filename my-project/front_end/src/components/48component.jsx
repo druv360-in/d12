@@ -30,7 +30,7 @@ export default function ProfileCard48({
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full lg:pl-[35px] lg:pr-[35px]">
       {/* =====================================================
           PROFILE CARD
       ===================================================== */}

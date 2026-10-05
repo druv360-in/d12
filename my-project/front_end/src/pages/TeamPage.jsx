@@ -8,7 +8,7 @@ import FiftyFourComponent from "../components/54component";
 import FiftyTwoComponent from "../components/52component";
 import FreelancerSwitch03 from "../components/FreelancerSwitch03";
 import Header01 from "../components/Header01";
-import SidebarMenu24 from "../components/SidebarMenu24";
+import SidebarMenu24 from "../components/Sidebarmenu24";
 
 export default function TeamPage() {
   const navigate = useNavigate();
@@ -167,8 +167,8 @@ export default function TeamPage() {
 
       <div
         className="
-          lg:pl-[360px]
-          xl:pl-[400px]
+          lg:pl-[340px]
+          xl:pl-[340px]
         "
       >
 

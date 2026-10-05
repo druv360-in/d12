@@ -26,6 +26,7 @@ const FREELANCER_SERVICES = {
         rating: 4.9,
         price: 299,
       },
+
       {
         id: 2,
         image:
@@ -99,7 +100,6 @@ const FREELANCER_SERVICES = {
 
 const DEFAULT_DATA = {
   hourlyRate: 35,
-
   services: [],
 };
 
@@ -149,8 +149,16 @@ export default function FreelancerServices48({
           SERVICES
       ===================================================== */}
 
-      <div className="mt-8 w-full bg-white pb-8">
-
+      <div
+        className="
+          mt-8
+          w-full
+          bg-white
+          pb-8
+          lg:pl-[36px]
+          lg:pr-[36px]
+        "
+      >
         {/* =====================================================
             HOURLY RATE CARD
         ===================================================== */}
@@ -169,25 +177,22 @@ export default function FreelancerServices48({
             to-purple-50
             px-5
             py-5
-
             shadow-[0_12px_25px_rgba(0,0,0,0.14)]
-
             transition-all
             duration-300
             ease-out
-
             sm:px-6
             lg:px-7
-
             hover:-translate-y-2
             hover:scale-[1.01]
             hover:shadow-[0_25px_50px_rgba(0,0,0,0.24)]
           "
         >
-          {/* LEFT */}
+          {/* =================================================
+              LEFT
+          ================================================= */}
 
           <div className="flex items-center gap-4">
-
             <div
               className="
                 flex
@@ -224,10 +229,11 @@ export default function FreelancerServices48({
                 ${finalHourlyRate}/hr
               </p>
             </div>
-
           </div>
 
-          {/* HIRE */}
+          {/* =================================================
+              HIRE
+          ================================================= */}
 
           <button
             type="button"
@@ -241,20 +247,16 @@ export default function FreelancerServices48({
               font-semibold
               text-purple-700
               shadow-[0_6px_14px_rgba(0,0,0,0.10)]
-
               transition-all
               duration-300
-
               hover:-translate-y-1
               hover:bg-purple-50
               hover:shadow-[0_12px_24px_rgba(0,0,0,0.16)]
-
               active:scale-[0.98]
             "
           >
             Hire Me
           </button>
-
         </div>
 
         {/* =====================================================
@@ -292,10 +294,8 @@ export default function FreelancerServices48({
                 text-lg
                 font-semibold
                 text-purple-700
-
                 transition-all
                 duration-300
-
                 hover:-translate-y-1
                 hover:text-purple-900
                 hover:shadow-[0_6px_14px_rgba(109,40,217,0.12)]
@@ -334,13 +334,10 @@ export default function FreelancerServices48({
                 border
                 border-gray-200/70
                 bg-[#F1F3F5]
-
                 shadow-[0_12px_25px_rgba(0,0,0,0.18)]
-
                 transition-all
                 duration-300
                 ease-out
-
                 hover:-translate-y-2
                 hover:scale-[1.01]
                 hover:shadow-[0_25px_50px_rgba(0,0,0,0.30)]
@@ -356,12 +353,9 @@ export default function FreelancerServices48({
                   w-[140px]
                   shrink-0
                   object-cover
-
                   transition-transform
                   duration-500
-
                   hover:scale-105
-
                   sm:h-[145px]
                   sm:w-[145px]
                 "
@@ -383,7 +377,6 @@ export default function FreelancerServices48({
                 "
               >
                 <div className="min-w-0">
-
                   {/* TITLE */}
 
                   <h4
@@ -438,7 +431,6 @@ export default function FreelancerServices48({
                       {service.rating}
                     </span>
                   </div>
-
                 </div>
 
                 {/* PRICE */}
@@ -454,7 +446,6 @@ export default function FreelancerServices48({
                     ${service.price}
                   </span>
                 </div>
-
               </div>
             </div>
           ))}
@@ -484,9 +475,9 @@ export default function FreelancerServices48({
 
           <div
             className="
+              max-h-[85vh]
               w-full
               max-w-[780px]
-              max-h-[85vh]
               overflow-hidden
               rounded-3xl
               bg-white
@@ -531,10 +522,8 @@ export default function FreelancerServices48({
                   rounded-full
                   bg-purple-50
                   text-gray-500
-
                   transition-all
                   duration-300
-
                   hover:-translate-y-1
                   hover:bg-purple-100
                   hover:text-purple-700
@@ -572,12 +561,9 @@ export default function FreelancerServices48({
                     border
                     border-gray-200/70
                     bg-[#F1F3F5]
-
                     shadow-[0_10px_20px_rgba(0,0,0,0.14)]
-
                     transition-all
                     duration-300
-
                     hover:-translate-y-1
                     hover:scale-[1.01]
                     hover:shadow-[0_18px_35px_rgba(0,0,0,0.22)]
@@ -611,7 +597,6 @@ export default function FreelancerServices48({
                     "
                   >
                     <div className="min-w-0">
-
                       <h3
                         className="
                           text-lg
@@ -659,7 +644,6 @@ export default function FreelancerServices48({
                           {service.rating}
                         </span>
                       </div>
-
                     </div>
 
                     <span
