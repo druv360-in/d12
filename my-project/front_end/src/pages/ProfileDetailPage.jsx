@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
 import Header01 from "../components/Header01";
-import SidebarMenu24 from "../components/SidebarMenu24";
+import SidebarMenu24 from "../components/Sidebarmenu24";
 import BottomMenu05 from "../components/BottomMenu05";
 
 import Component48 from "../components/48component";

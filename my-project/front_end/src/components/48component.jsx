@@ -39,7 +39,7 @@ export default function ProfileCard48({
         className="
           mx-auto
           w-full
-          max-w-[1600px]
+          max-w-[1500px]
           rounded-3xl
           bg-gradient-to-br
           from-violet-600
@@ -236,7 +236,7 @@ export default function ProfileCard48({
             mx-auto
             mt-6
             w-full
-            max-w-[1600px]
+            max-w-[1500px]
             px-1
           "
         >
@@ -271,7 +271,7 @@ export default function ProfileCard48({
             mx-auto
             mt-6
             w-full
-            max-w-[1600px]
+            max-w-[1500px]
             px-1
             pb-6
           "

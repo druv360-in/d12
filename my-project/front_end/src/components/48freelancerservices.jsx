@@ -160,7 +160,7 @@ export default function FreelancerServices48({
             mx-auto
             flex
             w-full
-            max-w-[1600px]
+            max-w-[1500px]
             items-center
             justify-between
             rounded-3xl
@@ -267,7 +267,7 @@ export default function FreelancerServices48({
             mt-8
             flex
             w-full
-            max-w-[1600px]
+            max-w-[1500px]
             items-center
             justify-between
             px-1
@@ -327,7 +327,7 @@ export default function FreelancerServices48({
                 mx-auto
                 flex
                 w-full
-                max-w-[1600px]
+                max-w-[1500px]
                 cursor-pointer
                 overflow-hidden
                 rounded-3xl

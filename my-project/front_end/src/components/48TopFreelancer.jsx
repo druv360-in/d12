@@ -76,10 +76,7 @@ export default function TopFreelancer48({ freelancer }) {
 
   return (
     <>
-      {/* =====================================================
-          FIXED BOTTOM BAR
-      ===================================================== */}
-
+      
       <div
         className="
           fixed
@@ -94,7 +91,7 @@ export default function TopFreelancer48({ freelancer }) {
           py-6
           shadow-[0_-8px_25px_rgba(0,0,0,0.10)]
           backdrop-blur-md
-          lg:left-[320px]
+          lg:left-[340px]
         "
       >
         <div
